@@ -1,1 +1,64 @@
+body {
+  background-color: #ffeecc;
+  margin: 0;
+  padding: 0;
+}
 
+.border {
+  margin: 0.5vmin;
+   border: 0.1vmin solid black;
+}
+header {
+  background-color: pink;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 20%;
+  font-size: 3vmin;
+}
+
+header h1 {
+  margin: 0;
+}
+
+aside {
+  background-color: limegreen;
+  width: 33.33%;
+  height: 100%;
+  font-size: 3vmin;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  float: left;
+}
+
+aside div {
+  margin: 1vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80%;
+  background-color: cornflowerblue;
+  border: 0.1vmin solid black;
+}
+
+main {
+  background-color: red;
+  width: 65%;
+  float: right;
+}
+
+.cardContainer {
+  border: 0;
+  margin: 4%;
+  display: flex;
+  justify-content: center;
+  flex-flow: wrap;
+}
+.card {
+  margin: 0.1vmin;
+  background-color: black;
+  width: 15vmin;
+  height: 20vmin;
+}

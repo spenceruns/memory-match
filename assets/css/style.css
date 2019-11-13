@@ -5,60 +5,62 @@ body {
 }
 
 .border {
-  margin: 0.5vmin;
-   border: 0.1vmin solid black;
+   border: 2px solid black;
 }
 header {
+  margin: 10px;
   background-color: pink;
+  font-size: 80px;
+  height: 200px;
   display: flex;
   justify-content: center;
-  width: 100%;
-  height: 20%;
-  font-size: 3vmin;
-}
-
-header h1 {
-  margin: 0;
+  align-items: center;
 }
 
 aside {
+  margin: 10px;
+  width: 650px;
+  height: 850px;
   background-color: limegreen;
-  width: 33.33%;
-  height: 100%;
-  font-size: 3vmin;
+  font-size: 35px;
+  float: left;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
-  float: left;
 }
 
 aside div {
-  margin: 1vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 80%;
   background-color: cornflowerblue;
-  border: 0.1vmin solid black;
+  border: 2px solid black;
+  width: 80%;
+  height: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 main {
   background-color: red;
-  width: 65%;
+  width: 1220px;
+  height: 850px;
   float: right;
+  margin: 10px;
 }
 
 .cardContainer {
+  background-color: blue;
   border: 0;
-  margin: 4%;
+  width: 100%;
+  height: 100%;
   display: flex;
   justify-content: center;
-  flex-flow: wrap;
+  align-items: center;
+  flex-wrap: wrap;
 }
 .card {
-  margin: 0.1vmin;
+  margin: 2.5px 5px;
   background-color: black;
-  width: 15vmin;
-  height: 20vmin;
+  width: 175px;
+  height: 225px;
 }

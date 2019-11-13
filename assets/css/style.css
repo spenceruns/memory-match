@@ -1,6 +1,7 @@
 body {
-  background-image: url('https://cdn.vox-cdn.com/thumbor/58AHOsVuGQqtm-6TQs4izFNpC20=/0x21:1028x792/1200x800/filters:focal(0x21:1028x792)/cdn.vox-cdn.com/uploads/chorus_image/image/35407408/homestar.0.jpg');
+  background-image: url("../images/lfz-background.jpg");
   background-repeat: no-repeat;
+  background-position: center;
   background-size: cover;
   margin: 0;
   padding: 0;
@@ -10,7 +11,6 @@ body {
    border: 0.2vh solid black;
 }
 header {
-  /* background-color: pink; */
   font-size: 6vmin;
   display: flex;
   justify-content: center;
@@ -28,7 +28,6 @@ main {
 }
 
 aside {
-  /* background-color: limegreen; */
   font-size: 5vmin;
   display: flex;
   flex-direction: column;
@@ -40,7 +39,6 @@ aside {
 }
 
 aside div {
-  /* background-color: cornflowerblue; */
   border: 0.2vh solid black;
   display: flex;
   justify-content: center;
@@ -55,7 +53,6 @@ aside div {
 .cardContainer {
   width: 66.66%;
   height: 100%;
-  /* background-color: blue; */
   display: flex;
   justify-content: center;
   align-content: center;
@@ -63,20 +60,64 @@ aside div {
   margin-left: 0.25%;
 }
 .card {
+  position: relative;
   margin: 0.5%;
   height: 20vh;
   width: 15%;
 }
 
+.hidden {
+  display: none;
+}
+
 .back {
-  width: 100%;
+  position: absolute;
+  background-image: url("../images/lfz-card.jpg");
+}
+
+.card-image {
+  background-position: center;
+  background-size: cover;
   height: 100%;
-  background-image: url("https://rogueplanet.tv/wp-content/uploads/2015/08/screen_shot_2014-04-02_at_2.26.05_pm.jpg");
-  background-repeat: no-repeat;
-  background-position: bottom;
-  background-size: contain;
-  background-color: #37679b;
+  width: 100%;
 }
 
 .front {
+  position: absolute;
+}
+
+.css-logo {
+  background-image: url("../images/css-logo.png");
+}
+
+.docker-logo {
+  background-image: url("../images/docker-logo.jpg");
+}
+
+.gitHub-logo {
+  background-image: url("../images/gitHub-logo.png");
+}
+
+.html-logo {
+  background-image: url("../images/html-logo.png");
+}
+
+.js-logo {
+  background-image: url("../images/js-logo.png");
+}
+
+.mysql-logo {
+  background-image: url("../images/mysql-logo.jpg");
+}
+
+.node-logo {
+  background-image: url("../images/node-logo.png");
+}
+
+.php-logo {
+  background-image: url("../images/php-logo.jpeg");
+}
+
+.react-logo {
+  background-image: url("../images/react-logo.png");
 }

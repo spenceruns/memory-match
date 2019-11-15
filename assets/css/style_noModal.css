@@ -67,7 +67,7 @@ aside div {
 }
 
 .hidden {
-  visibility: hidden;
+  display: none;
 }
 
 .back {
@@ -124,30 +124,28 @@ aside div {
 
 .modal {
   position: fixed;
+  z-index: 1;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   overflow: auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  text-align: center;
 }
 
 .modalContent {
-  position: absolute;
   background-color: chartreuse;
+  margin: 15% auto;
   padding: 3vmin;
   border: 1px solid black;
   width: 80%;
-  text-align: center;
+  z-index: 11;
 }
 
 .close {
   font-size: 20px;
   color: teal;
   float: right;
-  right: 0;
 }
 
 .close:hover,
@@ -161,5 +159,4 @@ aside div {
   background-color: rgba(0, 0, 0, 0.4);
   width: 100%;
   height: 100%;
-  cursor: pointer;
 }

@@ -1,15 +1,15 @@
 $(document).ready(inializeApp);
 
 function inializeApp() {
-  $(".cardContainer").on("click", "div.card", handleCardClick);
+  $(".cardContainer").on("click", ".card", handleCardClick);
   randomizeCards();
 }
 
 //Creating variables to hold clicked card values and check if they match
 var firstCardClicked = null;
 var secondCardClicked = null;
-var matches = null;
-var maxMatches = 9;
+var matches = 0;
+var maxMatches = 1;
 var attempts = 0;
 var gamesPlayed = 0;
 var firstCardImage = null;
@@ -114,7 +114,7 @@ function displayStats() {
 }
 
 function handleModal() {
-  //Target modal and closeButton
+  //Defining modal and closeButton for later
   var modal = $(".modal");
   var closeButton = $(".close");
 
@@ -130,4 +130,23 @@ function handleModal() {
   $(".shadow").on("click", function () {
     modal.addClass("hidden");
   })
+
+  $(".playAgain").on("click", resetGame);
+}
+
+function resetGame() {
+  //Hiding modal
+  $(".modal").addClass("hidden");
+
+  //Removing old gameboard
+  $(".cardContainer").find(".card").remove();
+
+  //Reset stats and display for new game
+  matches = 0;
+  attempts = 0;
+
+  displayStats();
+
+  //Create a new gameboard
+  randomizeCards();
 }

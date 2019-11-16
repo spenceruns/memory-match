@@ -68,8 +68,14 @@ function handleCardClick(event) {
     if (firstCardImage === secondCardImage) {
       //if correct, increases matches variable and sets clicked elements back to null
       matches++;
+      $("audio")[0].play();
+      showBeats(firstCardImage);
+      firstCardClicked.addClass("hidden");
+      secondCardClicked.addClass("hidden");
       firstCardClicked = null;
       secondCardClicked = null;
+      firstCardImage = null;
+      secondCardImage = null;
       //Open win modal if all are matched
       if (matches === maxMatches) {
         handleModal();
@@ -85,11 +91,9 @@ function handleCardClick(event) {
         $(".card").css("pointer-events", "auto");
         firstCardClicked = null;
         secondCardClicked = null;
-      }, 500)
+      }, 750)
     }
   }
-  //Display updated stats
-  displayStats();
 }
 
 function calculateAccuracy() {
@@ -130,13 +134,65 @@ function resetGame() {
 
   //Removing old gameboard
   $(".cardContainer").find(".card").remove();
+  debugger;
+  $("foundCard").find(".hi-hats").addClass("hidden");
+  $("foundCard").find(".piano").addClass("hidden");
+  $("foundCard").find(".bass").addClass("hidden");
+  $("foundCard").find(".kick").addClass("hidden");
+  $("foundCard").find(".snare").addClass("hidden");
+  $("foundCard").find(".sample").addClass("hidden");
+  $("foundCard").find(".clap").addClass("hidden");
+  $("foundCard").find(".synth").addClass("hidden");
+  $("foundCard").find(".noise").addClass("hidden");
 
   //Reset stats and display for new game
   matches = 0;
   attempts = 0;
 
-  displayStats();
-
   //Create a new gameboard
   randomizeCards();
 }
+
+function showBeats(cardFound) {
+  switch (cardFound) {
+    case "url(\"file:///Users/spencerallen/lfz/memory_match/cardAssets/hi-hats.png\")":
+      $(".foundCard").find(".hi-hats").removeClass("hidden");
+      break;
+    case "url(\"file:///Users/spencerallen/lfz/memory_match/cardAssets/piano.png\")":
+      $(".foundCard").find(".piano").removeClass("hidden");
+      break;
+    case "url(\"file:///Users/spencerallen/lfz/memory_match/cardAssets/bass.png\")":
+      $(".foundCard").find(".bass").removeClass("hidden");
+      break;
+    case "url(\"file:///Users/spencerallen/lfz/memory_match/cardAssets/kick.png\")":
+      $(".foundCard").find(".kick").removeClass("hidden");
+      break;
+    case "url(\"file:///Users/spencerallen/lfz/memory_match/cardAssets/snare.png\")":
+      $(".foundCard").find(".snare").removeClass("hidden");
+      break;
+    case "url(\"file:///Users/spencerallen/lfz/memory_match/cardAssets/sample.png\")":
+      $(".foundCard").find(".sample").removeClass("hidden");
+      break;
+    case "url(\"file:///Users/spencerallen/lfz/memory_match/cardAssets/clap.png\")":
+      $(".foundCard").find(".clap").removeClass("hidden");
+      break;
+    case "url(\"file:///Users/spencerallen/lfz/memory_match/cardAssets/synth.png\")":
+      $(".foundCard").find(".synth").removeClass("hidden");
+      break;
+    case "url(\"file:///Users/spencerallen/lfz/memory_match/cardAssets/noise.png\")":
+      $(".foundCard").find(".noise").removeClass("hidden");
+      break;
+  }
+}
+
+// function hidefoundCards() {
+// $("foundCard").find(".hi-hats").addClass("hidden");
+// $("foundCard").find(".piano").addClass("hidden");
+// $("foundCard").find(".bass").addClass("hidden");
+// $("foundCard").find(".kick").addClass("hidden");
+// $("foundCard").find(".snare").addClass("hidden");
+// $("foundCard").find(".sample").addClass("hidden");
+// $("foundCard").find(".clap").addClass("hidden");
+// $("foundCard").find(".synth").addClass("hidden");
+// $("foundCard").find(".noise").addClass("hidden");
+// }

@@ -1,17 +1,21 @@
-html {
-  filter: grayscale(0);
-}
-
 body {
   font-family: "Press Start 2P", cursive;
   background-color: #9eabbd;
-  /* background-image: url("../../a:vAssets/source.gif");
+  background-image: url("../../a:vAssets/source.gif");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  image-rendering: pixelated; */
+  image-rendering: pixelated;
   margin: 0;
   padding: 0;
+}
+
+.rain {
+  position: absolute;
+  background-image: url("../../a:vAssets/200.gif");
+  background-repeat: repeat;
+  width: 100%;
+  height: 100%;
 }
 
 .border {
@@ -20,7 +24,7 @@ body {
   border-radius: 10px;
 }
 header {
-  font-size: 4vmin;
+  font-size: 1.2vmin;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -30,23 +34,48 @@ header {
 }
 
 .location {
-  width: 170%;
+  width: 100%;
   position: absolute;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 
 .speakers {
-  width: 243%;
+  width: 100%;
   transform: scale(0.7);
 }
 
 main {
   display: flex;
-  justify-content: center;
   align-items: center;
   height: 75vmin;
-  padding: 1.5%;
+  margin: 2%;
+}
+
+.foundCardContainer {
+  width: 33.33%;
+  height: 100%;
+  background-color: rgba(145, 145, 145, 0.441);
+  margin-left: 1.5%;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-wrap: wrap;
+}
+
+.foundCard {
+  margin: 0.5%;
+  position: relative;
+  height: 18vmin;
+  width: 25%;
+  cursor: pointer;
+}
+
+.foundCard:hover {
+  animation-name: floating;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
 }
 
 .cardContainer {
@@ -56,14 +85,13 @@ main {
   justify-content: center;
   align-content: center;
   flex-wrap: wrap;
-  margin-left: 0.25%;
   background-color: rgba(145, 145, 145, 0.441);
 }
 .card {
   position: relative;
   margin: 0.5%;
-  height: 20vmin;
-  width: 15%;
+  height: 18vmin;
+  width: 14%;
   cursor: pointer;
 }
 
@@ -146,13 +174,13 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 3;
 }
 
 .modalContent {
   position: absolute;
-  background-color: chartreuse;
+  background-color: rgba(145, 145, 145, 0.441);
   padding: 3vmin;
-  border: 1px solid black;
   width: 80%;
   text-align: center;
 }

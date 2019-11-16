@@ -1,24 +1,25 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <title>Song Memory</title>
     <link rel="stylesheet" href="assets/css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
       <script src="assets/js/script.js"></script>
   </head>
   <body>
     <header class="border">
-      <h1>LFZ Memory Match</h1>
+      <h1>Memory Match</h1>
+          <div class="speakerbox location">
+            <img src="./cardAssets/speakerbox.png" alt="speakerbox left" class="speakerboxLeft">
+            <img src="./cardAssets/speakerbox.png" alt="speakerbox right" class="speakerboxRight">
+          </div>
+          <div class="speakers location">
+            <img src="./cardAssets/speaker.png" alt="speaker left" class="speakerLeft">
+            <img src="./cardAssets/speaker.png" alt="speaker right" class="speakerRight">
+          </div>
     </header>
     <main>
-      <aside class="border">
-        Stats
-        <div>Games Played</div>
-        <div id="gamesPlayed">0</div>
-        <div>Attempts</div>
-        <div id="attemps">0</div>
-        <div>Accuracy</div>
-        <div id="accuracy">0%</div>
-      </aside>
       <div class="cardContainer border">
       </div>
     </main>

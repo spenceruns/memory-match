@@ -9,7 +9,7 @@ function inializeApp() {
 var firstCardClicked = null;
 var secondCardClicked = null;
 var matches = 0;
-var maxMatches = 1;
+var maxMatches = 9;
 var attempts = 0;
 var gamesPlayed = 0;
 var firstCardImage = null;
@@ -17,7 +17,7 @@ var secondCardImage = null;
 
 function randomizeCards() {
   //Array with 9 seperate css class names in it
-  var cardFront = ["css-logo", "docker-logo", "gitHub-logo", "html-logo", "js-logo", "mysql-logo", "node-logo", "php-logo", "react-logo"];
+  var cardFront = ["hi-hats", "piano", "bass", "kick", "snare", "sample", "clap", "synth", "noise"];
   //Adding the array to itself in order to make pairs
   var finalCardOrder = cardFront.concat(cardFront);
   //Randomizing the order of the array for each game. Returns random full array
@@ -101,16 +101,6 @@ function calculateAccuracy() {
     var trueAccuracy = ((matches / attempts) * 100).toFixed(0);
     return trueAccuracy + "%";
   }
-}
-
-function displayStats() {
-  //Update gamesPlayed and Attemps displays with current stats
-  $("#gamesPlayed").text(gamesPlayed);
-  $("#attemps").text(attempts);
-
-  //Calculate current accuracy and update the display
-  var accuracyStat = calculateAccuracy();
-  $("#accuracy").text(accuracyStat);
 }
 
 function handleModal() {

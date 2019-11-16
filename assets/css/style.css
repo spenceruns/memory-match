@@ -1,52 +1,52 @@
+html {
+  filter: grayscale(0);
+}
+
 body {
-  background-image: url("../images/lfz-background.jpg");
+  font-family: "Press Start 2P", cursive;
+  background-color: #9eabbd;
+  /* background-image: url("../../a:vAssets/source.gif");
   background-repeat: no-repeat;
-  background-position: center;
   background-size: cover;
+  background-position: center;
+  image-rendering: pixelated; */
   margin: 0;
   padding: 0;
 }
 
 .border {
-   border: 0.2vmin solid black;
+  image-rendering: pixelated;
+  border: 1vmin solid black;
+  border-radius: 10px;
 }
 header {
-  font-size: 6vmin;
+  font-size: 4vmin;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 18vmin;
+  height: 15vmin;
   margin: 0.5%;
+  background: rgba(145, 145, 145, 0.441);
+}
+
+.location {
+  width: 170%;
+  position: absolute;
+  display: flex;
+  justify-content: space-around;
+}
+
+.speakers {
+  width: 243%;
+  transform: scale(0.7);
 }
 
 main {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 78vmin;
-  margin: 0.5%;
-}
-
-aside {
-  font-size: 5vmin;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 33.33%;
-  height: 100%;
-  margin-right: 0.25%;
-}
-
-aside div {
-  border: 0.2vmin solid black;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 80%;
-  height: 12%;
-  margin: 1%;
-  background-color: #37679b97;
+  height: 75vmin;
+  padding: 1.5%;
 }
 
 .cardContainer {
@@ -57,6 +57,7 @@ aside div {
   align-content: center;
   flex-wrap: wrap;
   margin-left: 0.25%;
+  background-color: rgba(145, 145, 145, 0.441);
 }
 .card {
   position: relative;
@@ -66,18 +67,31 @@ aside div {
   cursor: pointer;
 }
 
+.card:hover {
+  animation-name: floating;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+@keyframes floating {
+  from {transform: translate3d(0, 0, 0);}
+  to {transform: translate3d(-10px, -10px, 0);}
+}
+
 .hidden {
   visibility: hidden;
 }
 
 .back {
   position: absolute;
-  background-image: url("../images/lfz-card.jpg");
+  background-image: url("../../cardAssets/cardBack.png");
 }
 
 .card-image {
   background-position: center;
-  background-size: cover;
+  background-size: contain;
+  background-repeat: no-repeat;
   height: 100%;
   width: 100%;
 }
@@ -86,40 +100,40 @@ aside div {
   position: absolute;
 }
 
-.css-logo {
-  background-image: url("../images/css-logo.png");
+.hi-hats {
+  background-image: url("../../cardAssets/hi-hats.png");
 }
 
-.docker-logo {
-  background-image: url("../images/docker-logo.jpg");
+.piano {
+  background-image: url("../../cardAssets/piano.png");
 }
 
-.gitHub-logo {
-  background-image: url("../images/gitHub-logo.png");
+.bass {
+  background-image: url("../../cardAssets/bass.png");
 }
 
-.html-logo {
-  background-image: url("../images/html-logo.png");
+.kick {
+  background-image: url("../../cardAssets/kick.png");
 }
 
-.js-logo {
-  background-image: url("../images/js-logo.png");
+.snare {
+  background-image: url("../../cardAssets/snare.png");
 }
 
-.mysql-logo {
-  background-image: url("../images/mysql-logo.jpg");
+.sample {
+  background-image: url("../../cardAssets/sample.png");
 }
 
-.node-logo {
-  background-image: url("../images/node-logo.png");
+.clap {
+  background-image: url("../../cardAssets/clap.png");
 }
 
-.php-logo {
-  background-image: url("../images/php-logo.jpeg");
+.synth {
+  background-image: url("../../cardAssets/synth.png");
 }
 
-.react-logo {
-  background-image: url("../images/react-logo.png");
+.noise {
+  background-image: url("../../cardAssets/noise.png");
 }
 
 .modal {

@@ -226,18 +226,6 @@ main {
   text-align: center;
 }
 
-.close {
-  font-size: 20px;
-  float: right;
-  right: 0;
-}
-
-.close:hover,
-.close:focus {
-  color: crimson;
-  cursor: pointer;
-}
-
 .swordfish img {
   position: absolute;
   bottom: 12%;

@@ -1,13 +1,43 @@
 body {
   font-family: "Press Start 2P", cursive;
   background-color: #9eabbd;
+  margin: 0;
+  padding: 0;
+}
+
+.startScreen {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column;
+}
+
+.startGame {
+  width: 10%;
+  height: 10%;
+  top: 0;
+  margin: 5%;
+}
+
+.message {
+  text-align: center;
+  font-size: 3vmin;
+  color: white;
+}
+
+.mainPage {
+  position: absolute;
   background-image: url("../../a:vAssets/source.gif");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
   image-rendering: pixelated;
-  margin: 0;
-  padding: 0;
+  height: 100%;
+  width: 100%;
 }
 
 .rain {
@@ -33,16 +63,26 @@ header {
   background: rgba(145, 145, 145, 0.441);
 }
 
-.location {
-  width: 100%;
-  position: absolute;
+.speakerbox {
+  position: fixed;
   display: flex;
   justify-content: space-between;
+  width: 93%;
 }
 
 .speakers {
-  width: 100%;
-  transform: scale(0.7);
+  position: fixed;
+  display: flex;
+  justify-content: space-between;
+  width: 123%;
+  height: 14%;
+  animation: bump 1s infinite alternate;
+  transform: scale(0.75, 0.75);
+}
+
+@keyframes bump {
+  from {height: 14%;}
+  to {height: 18%;}
 }
 
 main {
@@ -179,23 +219,41 @@ main {
 
 .modalContent {
   position: absolute;
-  background-color: rgba(145, 145, 145, 0.441);
+  background-color: rgba(145, 145, 145, 1);
   padding: 3vmin;
-  width: 80%;
+  width: 50%;
+  height: 50vmin;
   text-align: center;
 }
 
 .close {
   font-size: 20px;
-  color: teal;
   float: right;
   right: 0;
 }
 
 .close:hover,
 .close:focus {
-  color: black;
+  color: crimson;
   cursor: pointer;
+}
+
+.swordfish img {
+  position: absolute;
+  bottom: 12%;
+  right: 2%;
+  height: 15%;
+  width: 15%;
+  animation-name: movement;
+  animation-duration: 5s;
+  animation-direction: alternate;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+@keyframes movement {
+  from {right: 2%;}
+  to {right: 45%;}
 }
 
 .shadow {
@@ -204,4 +262,67 @@ main {
   width: 100%;
   height: 100%;
   cursor: pointer;
+}
+
+p {
+  top: 10%;
+  font-size: 5vmin;
+}
+
+.stats {
+  font-size: 2vmin;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  float: left;
+  height: 96%;
+  background-color: crimson;
+  color: white;
+}
+
+.pixel {
+    background: #92CD41;
+    display: inline-block;
+    position: relative;
+    text-align: center;
+    font-size: 30px;
+    padding: 20px;
+    font-family: 'Press Start 2P', cursive;
+    text-decoration: none;
+    color: white;
+    box-shadow: inset (-4px) (-4px) 0px 0px #4AA52E;
+    cursor: pointer;
+}
+
+.pixel:hover,
+.pixel:focus {
+    background: #76c442;
+    box-shadow: inset (-4px*1.5) (-4px*1.5) 0px 0px #4AA52E;
+}
+
+.pixel:active {
+    box-shadow: inset 4px 4px 0px 0px #4AA52E;
+}
+
+.pixel:before,
+.pixel:after {
+content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    box-sizing: content-box;
+}
+
+.pixel:before {
+    top: -6px;
+    left: 0;
+    border-top: 6px black solid;
+    border-bottom: 6px black solid;
+}
+
+.pixel:after {
+    left: -6px;
+    top: 0;
+    border-left: 6px black solid;
+    border-right: 6px black solid;
 }

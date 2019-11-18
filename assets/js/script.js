@@ -3,6 +3,7 @@ $(document).ready(inializeApp);
 function inializeApp() {
   $(".cardContainer").on("click", ".card", handleCardClick);
   randomizeCards();
+  $(".startGame").on("click", startGame);
 }
 
 //Creating variables to hold clicked card values and check if they match
@@ -80,6 +81,7 @@ function handleCardClick(event) {
       if (matches === maxMatches) {
         handleModal();
         gamesPlayed++;
+        updateStats();
       }
     } else {
       //if incorrect, disables clicking and removes the "hidden" class after 1.5sec, sets elemets back to null
@@ -105,6 +107,12 @@ function calculateAccuracy() {
     var trueAccuracy = ((matches / attempts) * 100).toFixed(0);
     return trueAccuracy + "%";
   }
+}
+
+function updateStats() {
+  $(".gamesPlayed span").text(gamesPlayed);
+  $(".attempts span").text(attempts);
+  $(".accuracy span").text(calculateAccuracy());
 }
 
 function handleModal() {
@@ -134,16 +142,7 @@ function resetGame() {
 
   //Removing old gameboard
   $(".cardContainer").find(".card").remove();
-  debugger;
-  $("foundCard").find(".hi-hats").addClass("hidden");
-  $("foundCard").find(".piano").addClass("hidden");
-  $("foundCard").find(".bass").addClass("hidden");
-  $("foundCard").find(".kick").addClass("hidden");
-  $("foundCard").find(".snare").addClass("hidden");
-  $("foundCard").find(".sample").addClass("hidden");
-  $("foundCard").find(".clap").addClass("hidden");
-  $("foundCard").find(".synth").addClass("hidden");
-  $("foundCard").find(".noise").addClass("hidden");
+  hideFoundCards();
 
   //Reset stats and display for new game
   matches = 0;
@@ -153,46 +152,41 @@ function resetGame() {
   randomizeCards();
 }
 
+function startGame() {
+  $(".startScreen").addClass("hidden");
+  $(".mainPage").removeClass("hidden");
+}
+
 function showBeats(cardFound) {
-  switch (cardFound) {
-    case "url(\"file:///Users/spencerallen/lfz/memory_match/cardAssets/hi-hats.png\")":
-      $(".foundCard").find(".hi-hats").removeClass("hidden");
-      break;
-    case "url(\"file:///Users/spencerallen/lfz/memory_match/cardAssets/piano.png\")":
-      $(".foundCard").find(".piano").removeClass("hidden");
-      break;
-    case "url(\"file:///Users/spencerallen/lfz/memory_match/cardAssets/bass.png\")":
-      $(".foundCard").find(".bass").removeClass("hidden");
-      break;
-    case "url(\"file:///Users/spencerallen/lfz/memory_match/cardAssets/kick.png\")":
-      $(".foundCard").find(".kick").removeClass("hidden");
-      break;
-    case "url(\"file:///Users/spencerallen/lfz/memory_match/cardAssets/snare.png\")":
-      $(".foundCard").find(".snare").removeClass("hidden");
-      break;
-    case "url(\"file:///Users/spencerallen/lfz/memory_match/cardAssets/sample.png\")":
-      $(".foundCard").find(".sample").removeClass("hidden");
-      break;
-    case "url(\"file:///Users/spencerallen/lfz/memory_match/cardAssets/clap.png\")":
-      $(".foundCard").find(".clap").removeClass("hidden");
-      break;
-    case "url(\"file:///Users/spencerallen/lfz/memory_match/cardAssets/synth.png\")":
-      $(".foundCard").find(".synth").removeClass("hidden");
-      break;
-    case "url(\"file:///Users/spencerallen/lfz/memory_match/cardAssets/noise.png\")":
-      $(".foundCard").find(".noise").removeClass("hidden");
-      break;
+  if (cardFound.indexOf("hi-hats") >= 0) {
+    $(".foundCard").find(".hi-hats").removeClass("hidden");
+  } else if (cardFound.indexOf("piano") >= 0) {
+    $(".foundCard").find(".piano").removeClass("hidden");
+  } else if (cardFound.indexOf("bass") >= 0) {
+    $(".foundCard").find(".bass").removeClass("hidden");
+  } else if (cardFound.indexOf("kick") >= 0) {
+    $(".foundCard").find(".kick").removeClass("hidden");
+  } else if (cardFound.indexOf("snare") >= 0) {
+    $(".foundCard").find(".snare").removeClass("hidden");
+  } else if (cardFound.indexOf("sample") >= 0) {
+    $(".foundCard").find(".sample").removeClass("hidden");
+  } else if (cardFound.indexOf("clap") >= 0) {
+    $(".foundCard").find(".clap").removeClass("hidden");
+  } else if (cardFound.indexOf("synth") >= 0) {
+    $(".foundCard").find(".synth").removeClass("hidden");
+  } else if (cardFound.indexOf("noise") >= 0) {
+    $(".foundCard").find(".noise").removeClass("hidden");
   }
 }
 
-// function hidefoundCards() {
-// $("foundCard").find(".hi-hats").addClass("hidden");
-// $("foundCard").find(".piano").addClass("hidden");
-// $("foundCard").find(".bass").addClass("hidden");
-// $("foundCard").find(".kick").addClass("hidden");
-// $("foundCard").find(".snare").addClass("hidden");
-// $("foundCard").find(".sample").addClass("hidden");
-// $("foundCard").find(".clap").addClass("hidden");
-// $("foundCard").find(".synth").addClass("hidden");
-// $("foundCard").find(".noise").addClass("hidden");
-// }
+function hideFoundCards() {
+  $(".foundCard").find(".hi-hats").addClass("hidden");
+  $(".foundCard").find(".piano").addClass("hidden");
+  $(".foundCard").find(".bass").addClass("hidden");
+  $(".foundCard").find(".kick").addClass("hidden");
+  $(".foundCard").find(".snare").addClass("hidden");
+  $(".foundCard").find(".sample").addClass("hidden");
+  $(".foundCard").find(".clap").addClass("hidden");
+  $(".foundCard").find(".synth").addClass("hidden");
+  $(".foundCard").find(".noise").addClass("hidden");
+}

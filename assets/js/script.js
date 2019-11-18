@@ -110,6 +110,7 @@ function calculateAccuracy() {
 }
 
 function updateStats() {
+  //Displaying stats for game just played
   $(".gamesPlayed span").text(gamesPlayed);
   $(".attempts span").text(attempts);
   $(".accuracy span").text(calculateAccuracy());
@@ -142,8 +143,11 @@ function resetGame() {
 }
 
 function startGame() {
+  //Remove Start Screen and show the game
   $(".startScreen").addClass("hidden");
   $(".mainPage").removeClass("hidden");
+
+  //Play audio in background but muted
   $(".hi-hatsAudio")[0].play();
   $(".pianoAudio")[0].play();
   $(".kickAudio")[0].play();
@@ -154,6 +158,7 @@ function startGame() {
 }
 
 function showBeats(cardFound) {
+  //Hide cards off board and show on side while unmuting audio based on card found
   if (cardFound.indexOf("hi-hats") >= 0) {
     $(".foundCard").find(".hi-hats").removeClass("hidden");
     $(".hi-hatsAudio").prop("muted", false);
@@ -162,7 +167,7 @@ function showBeats(cardFound) {
     $(".pianoAudio").prop("muted", false);
   } else if (cardFound.indexOf("bass") >= 0) {
     $(".foundCard").find(".bass").removeClass("hidden");
-    //No bass sound file
+    //No bass sound file (not able to think of more tracks to add to audio)
   } else if (cardFound.indexOf("kick") >= 0) {
     $(".foundCard").find(".kick").removeClass("hidden");
     $(".kickAudio").prop("muted", false);
@@ -177,7 +182,7 @@ function showBeats(cardFound) {
     $(".clapsAudio").prop("muted", false);
   } else if (cardFound.indexOf("synth") >= 0) {
     $(".foundCard").find(".synth").removeClass("hidden");
-    //No synth sound file
+    //No bass sound file (not able to think of more tracks to add to audio)
   } else if (cardFound.indexOf("noise") >= 0) {
     $(".foundCard").find(".noise").removeClass("hidden");
     $(".noiseAudio").prop("muted", false);
@@ -185,6 +190,7 @@ function showBeats(cardFound) {
 }
 
 function hideFoundCards() {
+  //Reset side board to reply the game
   $(".foundCard").find(".hi-hats").addClass("hidden");
   $(".foundCard").find(".piano").addClass("hidden");
   $(".foundCard").find(".bass").addClass("hidden");
@@ -194,6 +200,8 @@ function hideFoundCards() {
   $(".foundCard").find(".clap").addClass("hidden");
   $(".foundCard").find(".synth").addClass("hidden");
   $(".foundCard").find(".noise").addClass("hidden");
+
+  //Mute audio again
   $(".hi-hatsAudio").prop("muted", true);
   $(".pianoAudio").prop("muted", true);
   $(".kickAudio").prop("muted", true);

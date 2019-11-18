@@ -108,7 +108,6 @@ main {
   position: relative;
   height: 18vmin;
   width: 25%;
-  cursor: pointer;
 }
 
 .foundCard:hover {
@@ -273,7 +272,7 @@ p {
     display: inline-block;
     position: relative;
     text-align: center;
-    font-size: 30px;
+    font-size: 3vh;
     padding: 20px;
     font-family: 'Press Start 2P', cursive;
     text-decoration: none;

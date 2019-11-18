@@ -1,52 +1,121 @@
 body {
-  background-image: url("../images/lfz-background.jpg");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
+  font-family: "Press Start 2P", cursive;
+  background-color: #9eabbd;
   margin: 0;
   padding: 0;
 }
 
-.border {
-   border: 0.2vmin solid black;
-}
-header {
-  font-size: 6vmin;
+.startScreen {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: black;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 18vmin;
+  flex-flow: column;
+}
+
+.startGame {
+  width: 10%;
+  height: 10%;
+  top: 0;
+  margin: 5%;
+}
+
+.message {
+  text-align: center;
+  font-size: 3vmin;
+  color: white;
+}
+
+.mainPage {
+  position: absolute;
+  background-image: url("../../a:vAssets/source.gif");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  image-rendering: pixelated;
+  height: 100%;
+  width: 100%;
+}
+
+.rain {
+  position: absolute;
+  background-image: url("../../a:vAssets/200.gif");
+  background-repeat: repeat;
+  width: 100%;
+  height: 100%;
+}
+
+.border {
+  image-rendering: pixelated;
+  border: 1vmin solid black;
+  border-radius: 10px;
+}
+header {
+  font-size: 1.2vmin;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 15vmin;
   margin: 0.5%;
+  background: rgba(145, 145, 145, 0.441);
+}
+
+.speakerbox {
+  position: fixed;
+  display: flex;
+  justify-content: space-between;
+  width: 93%;
+}
+
+.speakers {
+  position: fixed;
+  display: flex;
+  justify-content: space-between;
+  width: 123%;
+  height: 14%;
+  animation: bump 1s infinite alternate;
+  transform: scale(0.75, 0.75);
+}
+
+@keyframes bump {
+  from {height: 14%;}
+  to {height: 18%;}
 }
 
 main {
   display: flex;
-  justify-content: center;
   align-items: center;
-  height: 78vmin;
-  margin: 0.5%;
+  height: 75vmin;
+  margin: 2%;
 }
 
-aside {
-  font-size: 5vmin;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+.foundCardContainer {
   width: 33.33%;
   height: 100%;
-  margin-right: 0.25%;
-}
-
-aside div {
-  border: 0.2vmin solid black;
+  background-color: rgba(145, 145, 145, 0.441);
+  margin-left: 1.5%;
   display: flex;
   justify-content: center;
-  align-items: center;
-  width: 80%;
-  height: 12%;
-  margin: 1%;
-  background-color: #37679b97;
+  align-content: center;
+  flex-wrap: wrap;
+}
+
+.foundCard {
+  margin: 0.5%;
+  position: relative;
+  height: 18vmin;
+  width: 25%;
+  cursor: pointer;
+}
+
+.foundCard:hover {
+  animation-name: floating;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
 }
 
 .cardContainer {
@@ -56,14 +125,26 @@ aside div {
   justify-content: center;
   align-content: center;
   flex-wrap: wrap;
-  margin-left: 0.25%;
+  background-color: rgba(145, 145, 145, 0.441);
 }
 .card {
   position: relative;
   margin: 0.5%;
-  height: 20vmin;
-  width: 15%;
+  height: 18vmin;
+  width: 14%;
   cursor: pointer;
+}
+
+.card:hover {
+  animation-name: floating;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+@keyframes floating {
+  from {transform: translate3d(0, 0, 0);}
+  to {transform: translate3d(-10px, -10px, 0);}
 }
 
 .hidden {
@@ -72,12 +153,13 @@ aside div {
 
 .back {
   position: absolute;
-  background-image: url("../images/lfz-card.jpg");
+  background-image: url("../../cardAssets/cardBack.png");
 }
 
 .card-image {
   background-position: center;
-  background-size: cover;
+  background-size: contain;
+  background-repeat: no-repeat;
   height: 100%;
   width: 100%;
 }
@@ -86,40 +168,40 @@ aside div {
   position: absolute;
 }
 
-.css-logo {
-  background-image: url("../images/css-logo.png");
+.hi-hats {
+  background-image: url("../../cardAssets/hi-hats.png");
 }
 
-.docker-logo {
-  background-image: url("../images/docker-logo.jpg");
+.piano {
+  background-image: url("../../cardAssets/piano.png");
 }
 
-.gitHub-logo {
-  background-image: url("../images/gitHub-logo.png");
+.bass {
+  background-image: url("../../cardAssets/bass.png");
 }
 
-.html-logo {
-  background-image: url("../images/html-logo.png");
+.kick {
+  background-image: url("../../cardAssets/kick.png");
 }
 
-.js-logo {
-  background-image: url("../images/js-logo.png");
+.snare {
+  background-image: url("../../cardAssets/snare.png");
 }
 
-.mysql-logo {
-  background-image: url("../images/mysql-logo.jpg");
+.sample {
+  background-image: url("../../cardAssets/sample.png");
 }
 
-.node-logo {
-  background-image: url("../images/node-logo.png");
+.clap {
+  background-image: url("../../cardAssets/clap.png");
 }
 
-.php-logo {
-  background-image: url("../images/php-logo.jpeg");
+.synth {
+  background-image: url("../../cardAssets/synth.png");
 }
 
-.react-logo {
-  background-image: url("../images/react-logo.png");
+.noise {
+  background-image: url("../../cardAssets/noise.png");
 }
 
 .modal {
@@ -132,28 +214,46 @@ aside div {
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 3;
 }
 
 .modalContent {
   position: absolute;
-  background-color: chartreuse;
+  background-color: rgba(145, 145, 145, 1);
   padding: 3vmin;
-  border: 1px solid black;
-  width: 80%;
+  width: 50%;
+  height: 50vmin;
   text-align: center;
 }
 
 .close {
   font-size: 20px;
-  color: teal;
   float: right;
   right: 0;
 }
 
 .close:hover,
 .close:focus {
-  color: black;
+  color: crimson;
   cursor: pointer;
+}
+
+.swordfish img {
+  position: absolute;
+  bottom: 12%;
+  right: 2%;
+  height: 15%;
+  width: 15%;
+  animation-name: movement;
+  animation-duration: 5s;
+  animation-direction: alternate;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+@keyframes movement {
+  from {right: 2%;}
+  to {right: 45%;}
 }
 
 .shadow {
@@ -162,4 +262,67 @@ aside div {
   width: 100%;
   height: 100%;
   cursor: pointer;
+}
+
+p {
+  top: 10%;
+  font-size: 5vmin;
+}
+
+.stats {
+  font-size: 2vmin;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  float: left;
+  height: 96%;
+  background-color: crimson;
+  color: white;
+}
+
+.pixel {
+    background: #92CD41;
+    display: inline-block;
+    position: relative;
+    text-align: center;
+    font-size: 30px;
+    padding: 20px;
+    font-family: 'Press Start 2P', cursive;
+    text-decoration: none;
+    color: white;
+    box-shadow: inset (-4px) (-4px) 0px 0px #4AA52E;
+    cursor: pointer;
+}
+
+.pixel:hover,
+.pixel:focus {
+    background: #76c442;
+    box-shadow: inset (-4px*1.5) (-4px*1.5) 0px 0px #4AA52E;
+}
+
+.pixel:active {
+    box-shadow: inset 4px 4px 0px 0px #4AA52E;
+}
+
+.pixel:before,
+.pixel:after {
+content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    box-sizing: content-box;
+}
+
+.pixel:before {
+    top: -6px;
+    left: 0;
+    border-top: 6px black solid;
+    border-bottom: 6px black solid;
+}
+
+.pixel:after {
+    left: -6px;
+    top: 0;
+    border-left: 6px black solid;
+    border-right: 6px black solid;
 }

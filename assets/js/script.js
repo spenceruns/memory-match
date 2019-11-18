@@ -1,14 +1,15 @@
 $(document).ready(inializeApp);
 
 function inializeApp() {
-  $(".cardContainer").on("click", "div.card", handleCardClick);
+  $(".cardContainer").on("click", ".card", handleCardClick);
   randomizeCards();
+  $(".startGame").on("click", startGame);
 }
 
 //Creating variables to hold clicked card values and check if they match
 var firstCardClicked = null;
 var secondCardClicked = null;
-var matches = null;
+var matches = 0;
 var maxMatches = 9;
 var attempts = 0;
 var gamesPlayed = 0;
@@ -17,7 +18,7 @@ var secondCardImage = null;
 
 function randomizeCards() {
   //Array with 9 seperate css class names in it
-  var cardFront = ["css-logo", "docker-logo", "gitHub-logo", "html-logo", "js-logo", "mysql-logo", "node-logo", "php-logo", "react-logo"];
+  var cardFront = ["hi-hats", "piano", "bass", "kick", "snare", "sample", "clap", "synth", "noise"];
   //Adding the array to itself in order to make pairs
   var finalCardOrder = cardFront.concat(cardFront);
   //Randomizing the order of the array for each game. Returns random full array
@@ -68,12 +69,19 @@ function handleCardClick(event) {
     if (firstCardImage === secondCardImage) {
       //if correct, increases matches variable and sets clicked elements back to null
       matches++;
+      $("audio")[0].play();
+      showBeats(firstCardImage);
+      firstCardClicked.addClass("hidden");
+      secondCardClicked.addClass("hidden");
       firstCardClicked = null;
       secondCardClicked = null;
+      firstCardImage = null;
+      secondCardImage = null;
       //Open win modal if all are matched
       if (matches === maxMatches) {
         handleModal();
         gamesPlayed++;
+        updateStats();
       }
     } else {
       //if incorrect, disables clicking and removes the "hidden" class after 1.5sec, sets elemets back to null
@@ -85,11 +93,9 @@ function handleCardClick(event) {
         $(".card").css("pointer-events", "auto");
         firstCardClicked = null;
         secondCardClicked = null;
-      }, 500)
+      }, 750)
     }
   }
-  //Display updated stats
-  displayStats();
 }
 
 function calculateAccuracy() {
@@ -103,18 +109,14 @@ function calculateAccuracy() {
   }
 }
 
-function displayStats() {
-  //Update gamesPlayed and Attemps displays with current stats
-  $("#gamesPlayed").text(gamesPlayed);
-  $("#attemps").text(attempts);
-
-  //Calculate current accuracy and update the display
-  var accuracyStat = calculateAccuracy();
-  $("#accuracy").text(accuracyStat);
+function updateStats() {
+  $(".gamesPlayed span").text(gamesPlayed);
+  $(".attempts span").text(attempts);
+  $(".accuracy span").text(calculateAccuracy());
 }
 
 function handleModal() {
-  //Target modal and closeButton
+  //Defining modal and closeButton for later
   var modal = $(".modal");
   var closeButton = $(".close");
 
@@ -130,4 +132,61 @@ function handleModal() {
   $(".shadow").on("click", function () {
     modal.addClass("hidden");
   })
+
+  $(".playAgain").on("click", resetGame);
+}
+
+function resetGame() {
+  //Hiding modal
+  $(".modal").addClass("hidden");
+
+  //Removing old gameboard
+  $(".cardContainer").find(".card").remove();
+  hideFoundCards();
+
+  //Reset stats and display for new game
+  matches = 0;
+  attempts = 0;
+
+  //Create a new gameboard
+  randomizeCards();
+}
+
+function startGame() {
+  $(".startScreen").addClass("hidden");
+  $(".mainPage").removeClass("hidden");
+}
+
+function showBeats(cardFound) {
+  if (cardFound.indexOf("hi-hats") >= 0) {
+    $(".foundCard").find(".hi-hats").removeClass("hidden");
+  } else if (cardFound.indexOf("piano") >= 0) {
+    $(".foundCard").find(".piano").removeClass("hidden");
+  } else if (cardFound.indexOf("bass") >= 0) {
+    $(".foundCard").find(".bass").removeClass("hidden");
+  } else if (cardFound.indexOf("kick") >= 0) {
+    $(".foundCard").find(".kick").removeClass("hidden");
+  } else if (cardFound.indexOf("snare") >= 0) {
+    $(".foundCard").find(".snare").removeClass("hidden");
+  } else if (cardFound.indexOf("sample") >= 0) {
+    $(".foundCard").find(".sample").removeClass("hidden");
+  } else if (cardFound.indexOf("clap") >= 0) {
+    $(".foundCard").find(".clap").removeClass("hidden");
+  } else if (cardFound.indexOf("synth") >= 0) {
+    $(".foundCard").find(".synth").removeClass("hidden");
+  } else if (cardFound.indexOf("noise") >= 0) {
+    $(".foundCard").find(".noise").removeClass("hidden");
+  }
+}
+
+function hideFoundCards() {
+  $(".foundCard").find(".hi-hats").addClass("hidden");
+  $(".foundCard").find(".piano").addClass("hidden");
+  $(".foundCard").find(".bass").addClass("hidden");
+  $(".foundCard").find(".kick").addClass("hidden");
+  $(".foundCard").find(".snare").addClass("hidden");
+  $(".foundCard").find(".sample").addClass("hidden");
+  $(".foundCard").find(".clap").addClass("hidden");
+  $(".foundCard").find(".synth").addClass("hidden");
+  $(".foundCard").find(".noise").addClass("hidden");
 }

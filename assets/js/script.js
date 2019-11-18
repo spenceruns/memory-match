@@ -69,7 +69,7 @@ function handleCardClick(event) {
     if (firstCardImage === secondCardImage) {
       //if correct, increases matches variable and sets clicked elements back to null
       matches++;
-      $("audio")[0].play();
+      $(".select")[0].play();
       showBeats(firstCardImage);
       firstCardClicked.addClass("hidden");
       secondCardClicked.addClass("hidden");
@@ -118,20 +118,9 @@ function updateStats() {
 function handleModal() {
   //Defining modal and closeButton for later
   var modal = $(".modal");
-  var closeButton = $(".close");
 
   //Show modal if win condition is reached
   modal.removeClass("hidden");
-
-  //Allow clickButton to close the modal
-  closeButton.on("click", function () {
-    modal.addClass("hidden");
-  })
-
-  //Allow anything outside of the modal to close it
-  $(".shadow").on("click", function () {
-    modal.addClass("hidden");
-  })
 
   $(".playAgain").on("click", resetGame);
 }
@@ -155,27 +144,43 @@ function resetGame() {
 function startGame() {
   $(".startScreen").addClass("hidden");
   $(".mainPage").removeClass("hidden");
+  $(".hi-hatsAudio")[0].play();
+  $(".pianoAudio")[0].play();
+  $(".kickAudio")[0].play();
+  $(".snareAudio")[0].play();
+  $(".sampleAudio")[0].play();
+  $(".clapsAudio")[0].play();
+  $(".noiseAudio")[0].play();
 }
 
 function showBeats(cardFound) {
   if (cardFound.indexOf("hi-hats") >= 0) {
     $(".foundCard").find(".hi-hats").removeClass("hidden");
+    $(".hi-hatsAudio").prop("muted", false);
   } else if (cardFound.indexOf("piano") >= 0) {
     $(".foundCard").find(".piano").removeClass("hidden");
+    $(".pianoAudio").prop("muted", false);
   } else if (cardFound.indexOf("bass") >= 0) {
     $(".foundCard").find(".bass").removeClass("hidden");
+    //No bass sound file
   } else if (cardFound.indexOf("kick") >= 0) {
     $(".foundCard").find(".kick").removeClass("hidden");
+    $(".kickAudio").prop("muted", false);
   } else if (cardFound.indexOf("snare") >= 0) {
     $(".foundCard").find(".snare").removeClass("hidden");
+    $(".snareAudio").prop("muted", false);
   } else if (cardFound.indexOf("sample") >= 0) {
     $(".foundCard").find(".sample").removeClass("hidden");
+    $(".sampleAudio").prop("muted", false);
   } else if (cardFound.indexOf("clap") >= 0) {
     $(".foundCard").find(".clap").removeClass("hidden");
+    $(".clapsAudio").prop("muted", false);
   } else if (cardFound.indexOf("synth") >= 0) {
     $(".foundCard").find(".synth").removeClass("hidden");
+    //No synth sound file
   } else if (cardFound.indexOf("noise") >= 0) {
     $(".foundCard").find(".noise").removeClass("hidden");
+    $(".noiseAudio").prop("muted", false);
   }
 }
 
@@ -189,4 +194,11 @@ function hideFoundCards() {
   $(".foundCard").find(".clap").addClass("hidden");
   $(".foundCard").find(".synth").addClass("hidden");
   $(".foundCard").find(".noise").addClass("hidden");
+  $(".hi-hatsAudio").prop("muted", true);
+  $(".pianoAudio").prop("muted", true);
+  $(".kickAudio").prop("muted", true);
+  $(".snareAudio").prop("muted", true);
+  $(".sampleAudio").prop("muted", true);
+  $(".clapsAudio").prop("muted", true);
+  $(".noiseAudio").prop("muted", true);
 }

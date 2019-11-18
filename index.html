@@ -57,7 +57,6 @@
       <div class="modal hidden">
         <div class="shadow"></div>
         <div class="modalContent border">
-          <div class="close">X</div>
           <div class="stats border">
             <div class="gamesPlayed">Games Played:<span>0</span></div>
             <div class="attempts">Attempts:<span>0</span></div>
@@ -76,8 +75,29 @@
       <h1 class="message">Please play with audio on.</h1>
       <button class="startGame pixel">Play</button>
     </div>
-    <audio>
+    <audio class="select">
       <source src="./a:vAssets/8-bit sounds/Select 1.wav">
+    </audio>
+    <audio loop muted class="hi-hatsAudio">
+      <source src="./songAsset/hi-hats.mp3">
+    </audio>
+    <audio loop  muted class="pianoAudio">
+      <source src="./songAsset/piano.mp3">
+    </audio>
+    <audio loop  muted class="kickAudio">
+      <source src="./songAsset/kick.mp3">
+    </audio>
+    <audio loop  muted class="snareAudio">
+      <source src="./songAsset/snare.mp3">
+    </audio>
+    <audio loop  muted class="sampleAudio">
+      <source src="./songAsset/sample.mp3">
+    </audio>
+    <audio loop  muted class="clapsAudio">
+      <source src="./songAsset/claps.mp3">
+    </audio>
+    <audio loop  muted class="noiseAudio">
+      <source src="./songAsset/noise.mp3">
     </audio>
   </body>
 </html>

@@ -2,7 +2,7 @@ $(document).ready(inializeApp);
 
 function inializeApp() {
   $(".cardContainer").on("click", ".card", handleCardClick);
-  randomizeCards();
+  randomizeCardsAndAddFoundCards();
   $(".startGame").on("click", startGame);
 }
 
@@ -16,11 +16,11 @@ var gamesPlayed = 0;
 var firstCardImage = null;
 var secondCardImage = null;
 
-function randomizeCards() {
+function randomizeCardsAndAddFoundCards() {
   //Array with 9 seperate css class names in it
-  var cardFront = ["hi-hats", "piano", "bass", "kick", "snare", "sample", "clap", "synth", "noise"];
+  var cardFrontOrder = ["hi-hats", "piano", "bass", "kick", "snare", "sample", "clap", "synth", "noise"];
   //Adding the array to itself in order to make pairs
-  var finalCardOrder = cardFront.concat(cardFront);
+  var finalCardOrder = cardFrontOrder.concat(cardFrontOrder);
   //Randomizing the order of the array for each game. Returns random full array
   for (var index = finalCardOrder.length - 1; index > 0; index--) {
     var randomNumber = Math.floor(Math.random() * index);
@@ -29,22 +29,31 @@ function randomizeCards() {
     finalCardOrder[randomNumber] = temp;
   }
   //Dynamically creating cards from above array and adding it to the DOM.
-    for(var index = 0; index < finalCardOrder.length; index++) {
+    for (var index = 0; index < finalCardOrder.length; index++) {
       //Card front with random image
       var cardFront = $("<div>");
       cardFront.addClass("front card-image " + finalCardOrder[index]);
-
       //Card back with default image
       var cardBack = $("<div>");
       cardBack.addClass("back card-image");
-
       //Creating container for above two created divs
       var card = $("<div>");
       card.addClass("card");
-
       //Appending created elements to correct location
       card.append(cardFront, cardBack);
       $(".cardContainer").append(card);
+    }
+    //Dynamically creating the found cards
+    for (var foundIndex = 0; foundIndex < cardFrontOrder.length; foundIndex++) {
+      //Card front with images in order
+      var foundCardFront = $("<div>");
+      foundCardFront.addClass("front card-image " + cardFrontOrder[foundIndex] + " hidden");
+      //Card wrapper for found cards
+      var foundCard = $("<div>");
+      foundCard.addClass("foundCard");
+      foundCard.append(foundCardFront);
+      //Appending cards to correct location
+      $(".foundCardContainer").append(foundCard);
     }
 }
 
@@ -139,13 +148,15 @@ function resetGame() {
   attempts = 0;
 
   //Create a new gameboard
-  randomizeCards();
+  randomizeCardsAndAddFoundCards();
 }
 
 function startGame() {
   //Remove Start Screen and show the game
   $(".startScreen").addClass("hidden");
   $(".mainPage").removeClass("hidden");
+
+  //Starting audio when button is clicked
 
   //Play audio in background but muted
   $(".hi-hatsAudio")[0].play();

@@ -272,7 +272,7 @@ p {
     display: inline-block;
     position: relative;
     text-align: center;
-    font-size: 3vh;
+    font-size: 3vmin;
     padding: 20px;
     font-family: 'Press Start 2P', cursive;
     text-decoration: none;

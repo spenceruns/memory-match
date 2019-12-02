@@ -113,7 +113,7 @@ function calculateAccuracy() {
     return "0%";
   } else {
   //Round to 2 decimal places for the accuracy
-    var trueAccuracy = ((matches / attempts) * 100).toFixed(0);
+    var trueAccuracy = ((matches / attempts) * 100).toFixed();
     return trueAccuracy + "%";
   }
 }
@@ -170,31 +170,31 @@ function startGame() {
 
 function showBeats(cardFound) {
   //Hide cards off board and show on side while unmuting audio based on card found
-  if (cardFound.indexOf("hi-hats") >= 0) {
+  if (cardFound.indexOf("hi-hats") > -1) {
     $(".foundCard").find(".hi-hats").removeClass("hidden");
     $(".hi-hatsAudio").prop("muted", false);
-  } else if (cardFound.indexOf("piano") >= 0) {
+  } else if (cardFound.indexOf("piano") > -1) {
     $(".foundCard").find(".piano").removeClass("hidden");
     $(".pianoAudio").prop("muted", false);
-  } else if (cardFound.indexOf("bass") >= 0) {
+  } else if (cardFound.indexOf("bass") > -1) {
     $(".foundCard").find(".bass").removeClass("hidden");
     //No bass sound file (not able to think of more tracks to add to audio)
-  } else if (cardFound.indexOf("kick") >= 0) {
+  } else if (cardFound.indexOf("kick") > -1) {
     $(".foundCard").find(".kick").removeClass("hidden");
     $(".kickAudio").prop("muted", false);
-  } else if (cardFound.indexOf("snare") >= 0) {
+  } else if (cardFound.indexOf("snare") > -1) {
     $(".foundCard").find(".snare").removeClass("hidden");
     $(".snareAudio").prop("muted", false);
-  } else if (cardFound.indexOf("sample") >= 0) {
+  } else if (cardFound.indexOf("sample") > -1) {
     $(".foundCard").find(".sample").removeClass("hidden");
     $(".sampleAudio").prop("muted", false);
-  } else if (cardFound.indexOf("clap") >= 0) {
+  } else if (cardFound.indexOf("clap") > -1) {
     $(".foundCard").find(".clap").removeClass("hidden");
     $(".clapsAudio").prop("muted", false);
-  } else if (cardFound.indexOf("synth") >= 0) {
+  } else if (cardFound.indexOf("synth") > -1) {
     $(".foundCard").find(".synth").removeClass("hidden");
     //No bass sound file (not able to think of more tracks to add to audio)
-  } else if (cardFound.indexOf("noise") >= 0) {
+  } else if (cardFound.indexOf("noise") > -1) {
     $(".foundCard").find(".noise").removeClass("hidden");
     $(".noiseAudio").prop("muted", false);
   }

@@ -63,28 +63,6 @@ header {
   background: rgba(145, 145, 145, 0.441);
 }
 
-.speakerbox {
-  position: fixed;
-  display: flex;
-  justify-content: space-between;
-  width: 93%;
-}
-
-.speakers {
-  position: fixed;
-  display: flex;
-  justify-content: space-between;
-  width: 123%;
-  height: 14%;
-  animation: bump 1s infinite alternate;
-  transform: scale(0.75, 0.75);
-}
-
-@keyframes bump {
-  from {height: 14%;}
-  to {height: 18%;}
-}
-
 main {
   display: flex;
   align-items: center;
@@ -223,24 +201,6 @@ main {
   width: 50%;
   height: 50vmin;
   text-align: center;
-}
-
-.swordfish img {
-  position: absolute;
-  bottom: 12%;
-  right: 2%;
-  height: 15%;
-  width: 15%;
-  animation-name: movement;
-  animation-duration: 5s;
-  animation-direction: alternate;
-  animation-iteration-count: infinite;
-  animation-timing-function: linear;
-}
-
-@keyframes movement {
-  from {right: 2%;}
-  to {right: 45%;}
 }
 
 .shadow {

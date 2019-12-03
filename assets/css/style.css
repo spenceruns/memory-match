@@ -31,7 +31,7 @@ body {
 
 .mainPage {
   position: absolute;
-  background-image: url("../../a:vAssets/source.gif");
+  /* background-image: url("../../a:vAssets/background.gif"); */
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -42,7 +42,7 @@ body {
 
 .rain {
   position: absolute;
-  background-image: url("../../a:vAssets/200.gif");
+  background-image: url("../../a:vAssets/rain.gif");
   background-repeat: repeat;
   width: 100%;
   height: 100%;
@@ -89,10 +89,7 @@ main {
 }
 
 .foundCard:hover {
-  animation-name: floating;
-  animation-duration: 1s;
-  animation-iteration-count: infinite;
-  animation-direction: alternate;
+cursor: pointer;
 }
 
 .cardContainer {
@@ -126,11 +123,12 @@ main {
 
 .hidden {
   visibility: hidden;
+  cursor: default;
 }
 
 .back {
   position: absolute;
-  background-image: url("../../cardAssets/cardBack.png");
+  background-image: url("../../a:vAssets/cardAssets/cardBack.png");
 }
 
 .card-image {
@@ -146,39 +144,39 @@ main {
 }
 
 .hi-hats {
-  background-image: url("../../cardAssets/hi-hats.png");
+  background-image: url("../../a:vAssets/cardAssets/hi-hats.png");
 }
 
 .piano {
-  background-image: url("../../cardAssets/piano.png");
+  background-image: url("../../a:vAssets/cardAssets/piano.png");
 }
 
 .bass {
-  background-image: url("../../cardAssets/bass.png");
+  background-image: url("../../a:vAssets/cardAssets/bass.png");
 }
 
 .kick {
-  background-image: url("../../cardAssets/kick.png");
+  background-image: url("../../a:vAssets/cardAssets/kick.png");
 }
 
 .snare {
-  background-image: url("../../cardAssets/snare.png");
+  background-image: url("../../a:vAssets/cardAssets/snare.png");
 }
 
 .sample {
-  background-image: url("../../cardAssets/sample.png");
+  background-image: url("../../a:vAssets/cardAssets/sample.png");
 }
 
 .clap {
-  background-image: url("../../cardAssets/clap.png");
+  background-image: url("../../a:vAssets/cardAssets/clap.png");
 }
 
 .synth {
-  background-image: url("../../cardAssets/synth.png");
+  background-image: url("../../a:vAssets/cardAssets/synth.png");
 }
 
 .noise {
-  background-image: url("../../cardAssets/noise.png");
+  background-image: url("../../a:vAssets/cardAssets/noise.png");
 }
 
 .modal {

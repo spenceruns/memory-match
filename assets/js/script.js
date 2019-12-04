@@ -2,6 +2,7 @@ $(document).ready(inializeApp);
 
 function inializeApp() {
   $(".cardContainer").on("click", ".card", handleCardClick);
+  $(".foundCardContainer").on("click", ".foundCard", toggleMusicTrack);
   randomizeCardsAndAddFoundCards();
   $(".startGame").on("click", startGame);
 }
@@ -107,6 +108,41 @@ function handleCardClick(event) {
   }
 }
 
+function toggleMusicTrack(event) {
+  debugger;
+  var $foundCard = $(".foundCard");
+  var cardToggled = $(event.currentTarget).find(".front").css("background-image");
+  //Hide cards off board and show on side while unmuting audio based on card found
+  if (cardToggled.indexOf("hi-hats") > -1) {
+    $foundCard.find(".hi-hats").addClass("toggleMusic");
+    $(".hi-hatsAudio").prop("muted", false);
+  } else if (cardToggled.indexOf("piano") > -1) {
+    $foundCard.find(".piano").addClass("toggleMusic");
+    $(".pianoAudio").prop("muted", false);
+  } else if (cardToggled.indexOf("bass") > -1) {
+    $foundCard.find(".bass").addClass("toggleMusic");
+    //No bass sound file (not able to think of more tracks to add to audio)
+  } else if (cardToggled.indexOf("kick") > -1) {
+    $foundCard.find(".kick").addClass("toggleMusic");
+    $(".kickAudio").prop("muted", false);
+  } else if (cardToggled.indexOf("snare") > -1) {
+    $foundCard.find(".snare").addClass("toggleMusic");
+    $(".snareAudio").prop("muted", false);
+  } else if (cardToggled.indexOf("sample") > -1) {
+    $foundCard.find(".sample").addClass("toggleMusic");
+    $(".sampleAudio").prop("muted", false);
+  } else if (cardToggled.indexOf("clap") > -1) {
+    $foundCard.find(".clap").addClass("toggleMusic");
+    $(".clapsAudio").prop("muted", false);
+  } else if (cardToggled.indexOf("synth") > -1) {
+    $foundCard.find(".synth").addClass("toggleMusic");
+    //No bass sound file (not able to think of more tracks to add to audio)
+  } else if (cardToggled.indexOf("noise") > -1) {
+    $foundCard.find(".noise").addClass("toggleMusic");
+    $(".noiseAudio").prop("muted", false);
+  }
+}
+
 function calculateAccuracy() {
   //Make accuracy always display 0% for the first click
   if (attempts === 0) {
@@ -179,6 +215,7 @@ function startGame() {
 
 function showBeats(cardFound) {
   var $foundCard = $(".foundCard");
+  console.log(cardFound);
   //Hide cards off board and show on side while unmuting audio based on card found
   if (cardFound.indexOf("hi-hats") > -1) {
     $foundCard.find(".hi-hats").removeClass("hidden");

@@ -92,6 +92,10 @@ main {
 cursor: pointer;
 }
 
+.toggleMusic {
+  filter: grayscale(10%);
+}
+
 .cardContainer {
   width: 66.66%;
   height: 100%;

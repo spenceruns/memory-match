@@ -78,10 +78,10 @@ function handleCardClick(event) {
     if (firstCardImage === secondCardImage) {
       //if correct, increases matches variable and sets clicked elements back to null
       matches++;
-      $(".select")[0].play();
       showBeats(firstCardImage);
-      firstCardClicked.addClass("hidden");
-      secondCardClicked.addClass("hidden");
+      toggleMusicTrack(event);
+      firstCardClicked.addClass("hideCard");
+      secondCardClicked.addClass("hideCard");
       firstCardClicked = null;
       secondCardClicked = null;
       firstCardImage = null;
@@ -107,13 +107,47 @@ function handleCardClick(event) {
   }
 }
 
+function toggleMusicTrack(event) {
+  var $foundCard = $(".foundCard");
+  var cardToggled = $(event.currentTarget).find(".front").css("background-image");
+  //Hide cards off board and show on side while unmuting audio based on card found
+  if (cardToggled.indexOf("hi-hats") > -1) {
+    $foundCard.find(".hi-hats");
+    $(".hi-hatsAudio").prop("muted", false);
+  } else if (cardToggled.indexOf("piano") > -1) {
+    $foundCard.find(".piano");
+    $(".pianoAudio").prop("muted", false);
+  } else if (cardToggled.indexOf("bass") > -1) {
+    $foundCard.find(".bass");
+    //No bass sound file (not able to think of more tracks to add to audio)
+  } else if (cardToggled.indexOf("kick") > -1) {
+    $foundCard.find(".kick");
+    $(".kickAudio").prop("muted", false);
+  } else if (cardToggled.indexOf("snare") > -1) {
+    $foundCard.find(".snare");
+    $(".snareAudio").prop("muted", false);
+  } else if (cardToggled.indexOf("sample") > -1) {
+    $foundCard.find(".sample");
+    $(".sampleAudio").prop("muted", false);
+  } else if (cardToggled.indexOf("clap") > -1) {
+    $foundCard.find(".clap");
+    $(".clapsAudio").prop("muted", false);
+  } else if (cardToggled.indexOf("synth") > -1) {
+    $foundCard.find(".synth");
+    //No bass sound file (not able to think of more tracks to add to audio)
+  } else if (cardToggled.indexOf("noise") > -1) {
+    $foundCard.find(".noise");
+    $(".noiseAudio").prop("muted", false);
+  }
+}
+
 function calculateAccuracy() {
   //Make accuracy always display 0% for the first click
   if (attempts === 0) {
     return "0%";
   } else {
   //Round to 2 decimal places for the accuracy
-    var trueAccuracy = ((matches / attempts) * 100).toFixed(0);
+    var trueAccuracy = Math.round(10000 * matches/attempts) / 100;
     return trueAccuracy + "%";
   }
 }
@@ -140,8 +174,8 @@ function resetGame() {
   $(".modal").addClass("hidden");
 
   //Removing old gameboard
-  $(".cardContainer").find(".card").remove();
-  hideFoundCards();
+  $(".cardContainer").empty();
+  $(".foundCardContainer").empty();
 
   //Reset stats and display for new game
   matches = 0;
@@ -149,16 +183,34 @@ function resetGame() {
 
   //Create a new gameboard
   randomizeCardsAndAddFoundCards();
+
+  //Restart Audio on new play
+  $(".hi-hatsAudio")[0].play();
+  $(".pianoAudio")[0].play();
+  $(".kickAudio")[0].play();
+  $(".snareAudio")[0].play();
+  $(".sampleAudio")[0].play();
+  $(".clapsAudio")[0].play();
+  $(".noiseAudio")[0].play();
+  //Mute audio again
+  $(".hi-hatsAudio").prop("muted", true);
+  $(".pianoAudio").prop("muted", true);
+  $(".kickAudio").prop("muted", true);
+  $(".snareAudio").prop("muted", true);
+  $(".sampleAudio").prop("muted", true);
+  $(".clapsAudio").prop("muted", true);
+  $(".noiseAudio").prop("muted", true);
 }
 
 function startGame() {
   //Remove Start Screen and show the game
   $(".startScreen").addClass("hidden");
-  $(".mainPage").removeClass("hidden");
+  $(".gameBoard").removeClass("hidden");
 
-  //Starting audio when button is clicked
+  //Change Background color from black to fit theme (#9eabbd)
+  $("body").css("background-color", "#9eabbd");
 
-  //Play audio in background but muted
+  //Play audio in background but muted when start button is clicked
   $(".hi-hatsAudio")[0].play();
   $(".pianoAudio")[0].play();
   $(".kickAudio")[0].play();
@@ -169,55 +221,34 @@ function startGame() {
 }
 
 function showBeats(cardFound) {
+  var $foundCard = $(".foundCard");
   //Hide cards off board and show on side while unmuting audio based on card found
-  if (cardFound.indexOf("hi-hats") >= 0) {
-    $(".foundCard").find(".hi-hats").removeClass("hidden");
+  if (cardFound.indexOf("hi-hats") > -1) {
+    $foundCard.find(".hi-hats").removeClass("hidden");
     $(".hi-hatsAudio").prop("muted", false);
-  } else if (cardFound.indexOf("piano") >= 0) {
-    $(".foundCard").find(".piano").removeClass("hidden");
+  } else if (cardFound.indexOf("piano") > -1) {
+    $foundCard.find(".piano").removeClass("hidden");
     $(".pianoAudio").prop("muted", false);
-  } else if (cardFound.indexOf("bass") >= 0) {
-    $(".foundCard").find(".bass").removeClass("hidden");
+  } else if (cardFound.indexOf("bass") > -1) {
+    $foundCard.find(".bass").removeClass("hidden");
     //No bass sound file (not able to think of more tracks to add to audio)
-  } else if (cardFound.indexOf("kick") >= 0) {
-    $(".foundCard").find(".kick").removeClass("hidden");
+  } else if (cardFound.indexOf("kick") > -1) {
+    $foundCard.find(".kick").removeClass("hidden");
     $(".kickAudio").prop("muted", false);
-  } else if (cardFound.indexOf("snare") >= 0) {
-    $(".foundCard").find(".snare").removeClass("hidden");
+  } else if (cardFound.indexOf("snare") > -1) {
+    $foundCard.find(".snare").removeClass("hidden");
     $(".snareAudio").prop("muted", false);
-  } else if (cardFound.indexOf("sample") >= 0) {
-    $(".foundCard").find(".sample").removeClass("hidden");
+  } else if (cardFound.indexOf("sample") > -1) {
+    $foundCard.find(".sample").removeClass("hidden");
     $(".sampleAudio").prop("muted", false);
-  } else if (cardFound.indexOf("clap") >= 0) {
-    $(".foundCard").find(".clap").removeClass("hidden");
+  } else if (cardFound.indexOf("clap") > -1) {
+    $foundCard.find(".clap").removeClass("hidden");
     $(".clapsAudio").prop("muted", false);
-  } else if (cardFound.indexOf("synth") >= 0) {
-    $(".foundCard").find(".synth").removeClass("hidden");
+  } else if (cardFound.indexOf("synth") > -1) {
+    $foundCard.find(".synth").removeClass("hidden");
     //No bass sound file (not able to think of more tracks to add to audio)
-  } else if (cardFound.indexOf("noise") >= 0) {
-    $(".foundCard").find(".noise").removeClass("hidden");
+  } else if (cardFound.indexOf("noise") > -1) {
+    $foundCard.find(".noise").removeClass("hidden");
     $(".noiseAudio").prop("muted", false);
   }
-}
-
-function hideFoundCards() {
-  //Reset side board to reply the game
-  $(".foundCard").find(".hi-hats").addClass("hidden");
-  $(".foundCard").find(".piano").addClass("hidden");
-  $(".foundCard").find(".bass").addClass("hidden");
-  $(".foundCard").find(".kick").addClass("hidden");
-  $(".foundCard").find(".snare").addClass("hidden");
-  $(".foundCard").find(".sample").addClass("hidden");
-  $(".foundCard").find(".clap").addClass("hidden");
-  $(".foundCard").find(".synth").addClass("hidden");
-  $(".foundCard").find(".noise").addClass("hidden");
-
-  //Mute audio again
-  $(".hi-hatsAudio").prop("muted", true);
-  $(".pianoAudio").prop("muted", true);
-  $(".kickAudio").prop("muted", true);
-  $(".snareAudio").prop("muted", true);
-  $(".sampleAudio").prop("muted", true);
-  $(".clapsAudio").prop("muted", true);
-  $(".noiseAudio").prop("muted", true);
 }

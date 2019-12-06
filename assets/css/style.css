@@ -1,38 +1,36 @@
 body {
   font-family: "Press Start 2P", cursive;
-  background-color: #9eabbd;
+  background-color: black;
   margin: 0;
   padding: 0;
+  width: 100vw;
+  height: 100vh;
 }
 
 .startScreen {
   position: absolute;
   width: 100%;
   height: 100%;
-  background-color: black;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-flow: column;
 }
 
-.startGame {
-  width: 10%;
-  height: 10%;
-  top: 0;
-  margin: 5%;
-}
-
 .message {
-  text-align: center;
   font-size: 3vmin;
   color: white;
 }
 
-.mainPage {
+.startGame {
+  width: 20%;
+  height: 10%;
+  margin: 5%;
+}
+
+.gameBoard {
   position: absolute;
-  background-image: url("../../a:vAssets/source.gif");
-  background-repeat: no-repeat;
+  background-image: url("../../a:vAssets/background.gif");
   background-size: cover;
   background-position: center;
   image-rendering: pixelated;
@@ -42,54 +40,32 @@ body {
 
 .rain {
   position: absolute;
-  background-image: url("../../a:vAssets/200.gif");
-  background-repeat: repeat;
+  background-image: url("../../a:vAssets/rain.gif");
   width: 100%;
   height: 100%;
 }
 
 .border {
-  image-rendering: pixelated;
   border: 1vmin solid black;
   border-radius: 10px;
 }
+
 header {
-  font-size: 1.2vmin;
+  font-size: 1.1vmin;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 15vmin;
-  margin: 0.5%;
+  height: 7%;
+  margin: 2%;
   background: rgba(145, 145, 145, 0.441);
-}
-
-.speakerbox {
-  position: fixed;
-  display: flex;
-  justify-content: space-between;
-  width: 93%;
-}
-
-.speakers {
-  position: fixed;
-  display: flex;
-  justify-content: space-between;
-  width: 123%;
-  height: 14%;
-  animation: bump 1s infinite alternate;
-  transform: scale(0.75, 0.75);
-}
-
-@keyframes bump {
-  from {height: 14%;}
-  to {height: 18%;}
 }
 
 main {
   display: flex;
   align-items: center;
-  height: 75vmin;
+  height: 82%;
   margin: 2%;
+  margin-bottom: 1%;
 }
 
 .foundCardContainer {
@@ -106,15 +82,8 @@ main {
 .foundCard {
   margin: 0.5%;
   position: relative;
-  height: 18vmin;
-  width: 25%;
-}
-
-.foundCard:hover {
-  animation-name: floating;
-  animation-duration: 1s;
-  animation-iteration-count: infinite;
-  animation-direction: alternate;
+  height: 26%;
+  width: 28%;
 }
 
 .cardContainer {
@@ -129,8 +98,8 @@ main {
 .card {
   position: relative;
   margin: 0.5%;
-  height: 18vmin;
-  width: 14%;
+  height: 25%;
+  width: 15%;
   cursor: pointer;
 }
 
@@ -148,11 +117,16 @@ main {
 
 .hidden {
   visibility: hidden;
+  cursor: default;
+}
+
+.hideCard {
+  visibility: hidden;
 }
 
 .back {
   position: absolute;
-  background-image: url("../../cardAssets/cardBack.png");
+  background-image: url("../../a:vAssets/cardAssets/cardBack.png");
 }
 
 .card-image {
@@ -168,148 +142,207 @@ main {
 }
 
 .hi-hats {
-  background-image: url("../../cardAssets/hi-hats.png");
+  background-image: url("../../a:vAssets/cardAssets/hi-hats.png");
 }
 
 .piano {
-  background-image: url("../../cardAssets/piano.png");
+  background-image: url("../../a:vAssets/cardAssets/piano.png");
 }
 
 .bass {
-  background-image: url("../../cardAssets/bass.png");
+  background-image: url("../../a:vAssets/cardAssets/bass.png");
 }
 
 .kick {
-  background-image: url("../../cardAssets/kick.png");
+  background-image: url("../../a:vAssets/cardAssets/kick.png");
 }
 
 .snare {
-  background-image: url("../../cardAssets/snare.png");
+  background-image: url("../../a:vAssets/cardAssets/snare.png");
 }
 
 .sample {
-  background-image: url("../../cardAssets/sample.png");
+  background-image: url("../../a:vAssets/cardAssets/sample.png");
 }
 
 .clap {
-  background-image: url("../../cardAssets/clap.png");
+  background-image: url("../../a:vAssets/cardAssets/clap.png");
 }
 
 .synth {
-  background-image: url("../../cardAssets/synth.png");
+  background-image: url("../../a:vAssets/cardAssets/synth.png");
 }
 
 .noise {
-  background-image: url("../../cardAssets/noise.png");
+  background-image: url("../../a:vAssets/cardAssets/noise.png");
 }
 
 .modal {
   position: fixed;
   top: 0;
-  left: 0;
   width: 100%;
-  height: 100%;
-  overflow: auto;
+  height: 100vh;
+}
+
+.displayBoxes {
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 3;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  position: absolute;
 }
 
 .modalContent {
-  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-wrap: wrap;
   background-color: rgba(145, 145, 145, 1);
-  padding: 3vmin;
-  width: 50%;
-  height: 50vmin;
-  text-align: center;
-}
-
-.swordfish img {
-  position: absolute;
-  bottom: 12%;
-  right: 2%;
-  height: 15%;
-  width: 15%;
-  animation-name: movement;
-  animation-duration: 5s;
-  animation-direction: alternate;
-  animation-iteration-count: infinite;
-  animation-timing-function: linear;
-}
-
-@keyframes movement {
-  from {right: 2%;}
-  to {right: 45%;}
-}
-
-.shadow {
-  position: absolute;
-  background-color: rgba(0, 0, 0, 0.4);
-  width: 100%;
-  height: 100%;
-  cursor: pointer;
+  width: 52%;
+  height: 35%;
 }
 
 p {
-  top: 10%;
   font-size: 5vmin;
 }
 
 .stats {
-  font-size: 2vmin;
+  font-size: 1em;
   display: flex;
   justify-content: space-around;
-  flex-direction: column;
-  float: left;
-  height: 96%;
+  align-items: center;
+  height: 12%;
+  width: 52%;
   background-color: crimson;
   color: white;
+  margin: 1%;
+}
+
+.shadow {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  height: 100%;
 }
 
 .pixel {
-    background: #92CD41;
-    display: inline-block;
-    position: relative;
-    text-align: center;
-    font-size: 3vmin;
-    padding: 20px;
-    font-family: 'Press Start 2P', cursive;
-    text-decoration: none;
-    color: white;
-    box-shadow: inset (-4px) (-4px) 0px 0px #4AA52E;
-    cursor: pointer;
+  background-color: rgb(12, 199, 12);
+  font-family: "Press Start 2P", cursive;
+  font-size: 2em;
+  cursor: pointer;
+  color: white;
+  border: 5px solid black;
 }
 
-.pixel:hover,
-.pixel:focus {
-    background: #76c442;
-    box-shadow: inset (-4px*1.5) (-4px*1.5) 0px 0px #4AA52E;
+.pixel:hover {
+  background-color: rgb(10, 162, 10);
 }
 
-.pixel:active {
-    box-shadow: inset 4px 4px 0px 0px #4AA52E;
+.playAgain {
+  width: 50%;
+  height: 25%;
 }
 
-.pixel:before,
-.pixel:after {
-content: '';
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    box-sizing: content-box;
+/* Extra large devices (large desktops, 1200px and up) */
+@media (max-width: 1200px) {
+.card {
+  height: 15%;
+  width: 30%;
 }
 
-.pixel:before {
-    top: -6px;
-    left: 0;
-    border-top: 6px black solid;
-    border-bottom: 6px black solid;
+.foundCard {
+  height: 17%;
 }
 
-.pixel:after {
-    left: -6px;
-    top: 0;
-    border-left: 6px black solid;
-    border-right: 6px black solid;
+.stats{
+  font-size: 0.75em;
+}
+
+.pixel {
+  font-size: 1.5em;
+}
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (max-width: 992px) {
+main {
+  height: 86%;
+}
+
+.foundCardContainer{
+  display: none;
+}
+
+.cardContainer {
+width: 100%;
+}
+
+.stats{
+  font-size: 1em;
+  flex-flow: column;
+}
+
+.pixel {
+  font-size: 1em;
+}
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (max-width: 768px) {
+  .hideCard {
+    visibility: visible;
+  }
+
+.card {
+  height: 30%;
+  width: 15%;
+}
+
+.playAgain,
+.startGame,
+.pixel {
+  font-size: 0.5em;
+}
+
+.card:hover {
+  animation: none;
+}
+
+.stats{
+  font-size: 1em;
+}
+
+}
+
+/* Making font sized for the landscape phone but not tablets */
+@media (max-width: 767px) {
+  main {
+    height: 80%;
+  }
+
+.stats{
+  font-size: 0.5em;
+}
+}
+
+/* Small devices (Mobile devices, 576px and up) */
+@media (max-width: 576px) {
+  main {
+  height: 88%;
+}
+
+.foundCardContainer{
+  display: none;
+}
+
+.cardContainer {
+  width: 100%;
+}
+
+.card {
+  height: 15%;
+  width: 30%;
+}
 }

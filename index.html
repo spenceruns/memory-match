@@ -2,13 +2,19 @@
 <html>
   <head>
     <title>Song Memory</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/css/style.css">
     <link href="https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
       <script src="assets/js/script.js"></script>
   </head>
   <body>
-    <div class="mainPage hidden">
+    <div class="startScreen">
+      <h1 class="message">This is an audio experience.</h1>
+      <h1 class="message">Please play with audio on.</h1>
+      <button class="startGame pixel">Play</button>
+    </div>
+    <div class="gameBoard hidden">
       <div class="rain"></div>
       <header class="border">
         <h1>lofi hip hop - beats to match/study to</h1>
@@ -21,48 +27,41 @@
       </main>
       <div class="modal hidden">
         <div class="shadow"></div>
-        <div class="modalContent border">
+        <div class="displayBoxes">
           <div class="stats border">
             <div class="gamesPlayed">Games Played:<span>0</span></div>
             <div class="attempts">Attempts:<span>0</span></div>
             <div class="accuracy">Accuracy:<span>0%</span></div>
           </div>
-          <p>You're Awesome</p>
-          <button class="playAgain pixel">Play Again?</button>
-          <div class="swordfish flip">
-            <img src="./a:vAssets/swordfish2.png" alt="swordfish">
+          <div class="modalContent border">
+            <p>You're Awesome</p>
+            <button class="playAgain pixel">Play Again?</button>
           </div>
         </div>
       </div>
     </div>
-    <div class="startScreen">
-      <h1 class="message">This is an audio experience.</h1>
-      <h1 class="message">Please play with audio on.</h1>
-      <button class="startGame pixel">Play</button>
+    <div class="audio">
+      <audio loop muted class="hi-hatsAudio">
+        <source src="./a:vAssets/songAsset/hi-hats.mp3">
+      </audio>
+      <audio loop muted class="pianoAudio">
+        <source src="./a:vAssets/songAsset/piano.mp3">
+      </audio>
+      <audio loop muted class="kickAudio">
+        <source src="./a:vAssets/songAsset/kick.mp3">
+      </audio>
+      <audio loop muted class="snareAudio">
+        <source src="./a:vAssets/songAsset/snare.mp3">
+      </audio>
+      <audio loop muted class="sampleAudio">
+        <source src="./a:vAssets/songAsset/sample.mp3">
+      </audio>
+      <audio loop muted class="clapsAudio">
+        <source src="./a:vAssets/songAsset/claps.mp3">
+      </audio>
+      <audio loop muted class="noiseAudio">
+        <source src="./a:vAssets/songAsset/noise.mp3">
+      </audio>
     </div>
-    <audio class="select">
-      <source src="./a:vAssets/8-bit sounds/Select 1.wav">
-    </audio>
-    <audio loop muted class="hi-hatsAudio">
-      <source src="./songAsset/hi-hats.mp3">
-    </audio>
-    <audio loop  muted class="pianoAudio">
-      <source src="./songAsset/piano.mp3">
-    </audio>
-    <audio loop  muted class="kickAudio">
-      <source src="./songAsset/kick.mp3">
-    </audio>
-    <audio loop  muted class="snareAudio">
-      <source src="./songAsset/snare.mp3">
-    </audio>
-    <audio loop  muted class="sampleAudio">
-      <source src="./songAsset/sample.mp3">
-    </audio>
-    <audio loop  muted class="clapsAudio">
-      <source src="./songAsset/claps.mp3">
-    </audio>
-    <audio loop  muted class="noiseAudio">
-      <source src="./songAsset/noise.mp3">
-    </audio>
   </body>
 </html>

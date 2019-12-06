@@ -47,7 +47,7 @@ function randomizeCardsAndAddFoundCards() {
     for (var foundIndex = 0; foundIndex < cardFrontOrder.length; foundIndex++) {
       //Card front with images in order
       var foundCardFront = $("<div>");
-      foundCardFront.addClass("front card-image " + cardFrontOrder[foundIndex] + " hidden");
+      foundCardFront.addClass("front card-image " + cardFrontOrder[foundIndex]);
       //Card wrapper for found cards
       var foundCard = $("<div>");
       foundCard.addClass("foundCard");
@@ -78,7 +78,6 @@ function handleCardClick(event) {
     if (firstCardImage === secondCardImage) {
       //if correct, increases matches variable and sets clicked elements back to null
       matches++;
-      $(".select")[0].play();
       showBeats(firstCardImage);
       toggleMusicTrack(event);
       firstCardClicked.addClass("hidden");
@@ -206,7 +205,10 @@ function resetGame() {
 function startGame() {
   //Remove Start Screen and show the game
   $(".startScreen").addClass("hidden");
-  $(".mainPage").removeClass("hidden");
+  $(".gameBoard").removeClass("hidden");
+
+  //Change Background color from black to fit theme (#9eabbd)
+  $("body").css("background-color", "#9eabbd");
 
   //Starting audio when button is clicked
 

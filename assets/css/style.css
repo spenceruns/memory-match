@@ -1,8 +1,9 @@
 body {
   font-family: "Press Start 2P", cursive;
-  background-color: #9eabbd;
+  background-color: black;
   margin: 0;
   padding: 0;
+  width: 100vw;
   height: 100vh;
 }
 
@@ -17,22 +18,15 @@ body {
   flex-flow: column;
 }
 
-.startGame {
-  width: 10%;
-  height: 10%;
-  top: 0;
-  margin: 5%;
-}
-
 .message {
   text-align: center;
   font-size: 3vmin;
   color: white;
 }
 
-.mainPage {
+.gameBoard {
   position: absolute;
-  background-image: url("../../a:vAssets/background.gif");
+  /* background-image: url("../../a:vAssets/background.gif"); */
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -54,8 +48,9 @@ body {
   border: 1vmin solid black;
   border-radius: 10px;
 }
+
 header {
-  font-size: 1.2vmin;
+  font-size: 1.1vmin;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -67,8 +62,9 @@ header {
 main {
   display: flex;
   align-items: center;
-  height: 80%;
+  height: 82%;
   margin: 2%;
+  margin-bottom: 1%;
 }
 
 .foundCardContainer {
@@ -85,8 +81,8 @@ main {
 .foundCard {
   margin: 0.5%;
   position: relative;
-  height: 18vmin;
-  width: 25%;
+  height: 26%;
+  width: 28%;
 }
 
 .cardContainer {
@@ -179,14 +175,18 @@ main {
 .modal {
   position: fixed;
   top: 0;
-  left: 0;
   width: 100%;
-  height: 100%;
-  overflow: auto;
+  height: 100vh;
+}
+
+.displayBoxes {
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 3;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  position: absolute;
 }
 
 .modalContent {
@@ -194,19 +194,10 @@ main {
   justify-content: center;
   align-content: center;
   flex-wrap: wrap;
-  position: absolute;
   background-color: rgba(145, 145, 145, 1);
-  padding: 3vmin;
-  width: 50%;
-  height: 50vmin;
+  width: 52%;
+  height: 35%;
   text-align: center;
-}
-
-.shadow {
-  position: absolute;
-  background-color: rgba(0, 0, 0, 0.4);
-  width: 100%;
-  height: 100%;
 }
 
 p {
@@ -215,69 +206,73 @@ p {
 }
 
 .stats {
-  font-size: 2vmin;
+  font-size: 1em;
   display: flex;
   justify-content: space-around;
-  flex-direction: column;
-  float: left;
-  height: 96%;
+  align-items: center;
+  height: 12%;
+  width: 52%;
   background-color: crimson;
   color: white;
+  margin: 1%;
 }
 
-/* .pixel {
-    background: #92CD41;
-    display: inline-block;
-    position: relative;
-    text-align: center;
-    font-size: 3vmin;
-    padding: 20px;
-    font-family: 'Press Start 2P', cursive;
-    text-decoration: none;
-    color: white;
-    box-shadow: inset (-4px) (-4px) 0px 0px #4AA52E;
-    cursor: pointer;
+.shadow {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  height: 100%;
 }
 
-.pixel:hover,
-.pixel:focus {
-    background: #76c442;
-    box-shadow: inset (-4px*1.5) (-4px*1.5) 0px 0px #4AA52E;
+.pixel {
+  background-color: rgb(12, 199, 12);
+  font-family: "Press Start 2P", cursive;
+  font-size: 2em;
+  cursor: pointer;
+  color: white;
+  border: 5px solid black;
 }
 
-.pixel:active {
-    box-shadow: inset 4px 4px 0px 0px #4AA52E;
+.pixel:hover {
+  background-color: rgb(10, 162, 10);
 }
 
-.pixel:before,
-.pixel:after {
-content: '';
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    box-sizing: content-box;
+.startGame {
+  width: 20%;
+  height: 10%;
+  top: 0;
+  margin: 5%;
 }
 
-.pixel:before {
-    top: -6px;
-    left: 0;
-    border-top: 6px black solid;
-    border-bottom: 6px black solid;
+.playAgain {
+  width: 50%;
+  height: 25%;
 }
 
-.pixel:after {
-    left: -6px;
-    top: 0;
-    border-left: 6px black solid;
-    border-right: 6px black solid;
-} */
+/* Extra large devices (large desktops, 1200px and up) */
+@media (max-width: 1200px) {
+.card {
+  height: 15%;
+  width: 30%;
+}
 
-@media only screen
-and (min-device-width : 375px)
-and (max-device-width : 667px)
-and (orientation : portrait) {
+.foundCard {
+  height: 17%;
+}
+
+.stats{
+  font-size: 0.75em;
+}
+
+.pixel {
+  font-size: 1.5em;
+}
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (max-width: 992px) {
 main {
-  height: 88%;
+  height: 86%;
 }
 
 .foundCardContainer{
@@ -288,9 +283,67 @@ main {
 width: 100%;
 }
 
+.stats{
+  font-size: 1em;
+  flex-flow: column;
+}
+
+.pixel {
+  font-size: 1em;
+}
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (max-width: 768px) {
+main {
+    height: 80%;
+  }
+
+.card {
+  height: 30%;
+  width: 15%;
+}
+
+.playAgain,
+.startGame,
+.pixel {
+  font-size: 0.5em;
+}
+
+.card:hover {
+  animation: none;
+}
+
+.stats{
+  font-size: 1em;
+}
+
+}
+
+/* Making font sized for the landscape phone but not tablets */
+@media (max-width: 767px) {
+.stats{
+
+  font-size: 0.5em;
+}
+}
+
+/* Small devices (Mobile devices, 576px and up) */
+@media (max-width: 576px) {
+  main {
+  height: 88%;
+}
+
+.foundCardContainer{
+  display: none;
+}
+
+.cardContainer {
+  width: 100%;
+}
+
 .card {
   height: 15%;
   width: 30%;
 }
-
 }

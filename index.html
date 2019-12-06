@@ -2,14 +2,20 @@
 <html>
   <head>
     <title>Song Memory</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/css/style.css">
     <link href="https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
       <script src="assets/js/script.js"></script>
   </head>
   <body>
-    <div class="mainPage hidden">
-      <div class="rain"></div>
+    <div class="startScreen hidden">
+      <h1 class="message">This is an audio experience.</h1>
+      <h1 class="message">Please play with audio on.</h1>
+      <button class="startGame pixel">Play</button>
+    </div>
+    <div class="gameBoard">
+      <!-- <div class="rain"></div> -->
       <header class="border">
         <h1>lofi hip hop - beats to match/study to</h1>
       </header>
@@ -19,27 +25,21 @@
         <div class="foundCardContainer border">
         </div>
       </main>
-      <div class="modal hidden">
+      <div class="modal">
         <div class="shadow"></div>
-        <div class="stats border">
-          <div class="gamesPlayed">Games Played:<span>0</span></div>
-          <div class="attempts">Attempts:<span>0</span></div>
-          <div class="accuracy">Accuracy:<span>0%</span></div>
-        </div>
-        <div class="modalContent border">
-          <p>You're Awesome</p>
-          <button class="playAgain pixel">Play Again?</button>
+        <div class="displayBoxes">
+          <div class="stats border">
+            <div class="gamesPlayed">Games Played:<span>0</span></div>
+            <div class="attempts">Attempts:<span>0</span></div>
+            <div class="accuracy">Accuracy:<span>0%</span></div>
+          </div>
+          <div class="modalContent border">
+            <p>You're Awesome</p>
+            <button class="playAgain pixel">Play Again?</button>
+          </div>
         </div>
       </div>
     </div>
-    <div class="startScreen">
-      <h1 class="message">This is an audio experience.</h1>
-      <h1 class="message">Please play with audio on.</h1>
-      <button class="startGame pixel">Play</button>
-    </div>
-    <audio class="select">
-      <source src="./a:vAssets/Select 1.wav">
-    </audio>
     <audio loop muted class="hi-hatsAudio">
       <source src="./a:vAssets/songAsset/hi-hats.mp3">
     </audio>

@@ -32,7 +32,7 @@ function randomizeCardsAndAddFoundCards() {
     for (var index = 0; index < finalCardOrder.length; index++) {
       //Card front with random image
       var cardFront = $("<div>");
-      cardFront.addClass("front card-image " + finalCardOrder[index]);
+      cardFront.addClass("front card-image mobile " + finalCardOrder[index]);
       //Card back with default image
       var cardBack = $("<div>");
       cardBack.addClass("back card-image");
@@ -47,7 +47,7 @@ function randomizeCardsAndAddFoundCards() {
     for (var foundIndex = 0; foundIndex < cardFrontOrder.length; foundIndex++) {
       //Card front with images in order
       var foundCardFront = $("<div>");
-      foundCardFront.addClass("front card-image " + cardFrontOrder[foundIndex]);
+      foundCardFront.addClass("front card-image " + cardFrontOrder[foundIndex] + " hidden");
       //Card wrapper for found cards
       var foundCard = $("<div>");
       foundCard.addClass("foundCard");
@@ -80,8 +80,8 @@ function handleCardClick(event) {
       matches++;
       showBeats(firstCardImage);
       toggleMusicTrack(event);
-      firstCardClicked.addClass("hidden");
-      secondCardClicked.addClass("hidden");
+      firstCardClicked.addClass("hideCard");
+      secondCardClicked.addClass("hideCard");
       firstCardClicked = null;
       secondCardClicked = null;
       firstCardImage = null;
@@ -210,9 +210,7 @@ function startGame() {
   //Change Background color from black to fit theme (#9eabbd)
   $("body").css("background-color", "#9eabbd");
 
-  //Starting audio when button is clicked
-
-  //Play audio in background but muted
+  //Play audio in background but muted when start button is clicked
   $(".hi-hatsAudio")[0].play();
   $(".pianoAudio")[0].play();
   $(".kickAudio")[0].play();
@@ -224,7 +222,6 @@ function startGame() {
 
 function showBeats(cardFound) {
   var $foundCard = $(".foundCard");
-  console.log(cardFound);
   //Hide cards off board and show on side while unmuting audio based on card found
   if (cardFound.indexOf("hi-hats") > -1) {
     $foundCard.find(".hi-hats").removeClass("hidden");

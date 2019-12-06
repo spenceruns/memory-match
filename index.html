@@ -9,13 +9,13 @@
       <script src="assets/js/script.js"></script>
   </head>
   <body>
-    <div class="startScreen hidden">
+    <div class="startScreen">
       <h1 class="message">This is an audio experience.</h1>
       <h1 class="message">Please play with audio on.</h1>
       <button class="startGame pixel">Play</button>
     </div>
-    <div class="gameBoard">
-      <!-- <div class="rain"></div> -->
+    <div class="gameBoard hidden">
+      <div class="rain"></div>
       <header class="border">
         <h1>lofi hip hop - beats to match/study to</h1>
       </header>
@@ -25,7 +25,7 @@
         <div class="foundCardContainer border">
         </div>
       </main>
-      <div class="modal">
+      <div class="modal hidden">
         <div class="shadow"></div>
         <div class="displayBoxes">
           <div class="stats border">
@@ -40,26 +40,28 @@
         </div>
       </div>
     </div>
-    <audio loop muted class="hi-hatsAudio">
-      <source src="./a:vAssets/songAsset/hi-hats.mp3">
-    </audio>
-    <audio loop  muted class="pianoAudio">
-      <source src="./a:vAssets/songAsset/piano.mp3">
-    </audio>
-    <audio loop  muted class="kickAudio">
-      <source src="./a:vAssets/songAsset/kick.mp3">
-    </audio>
-    <audio loop  muted class="snareAudio">
-      <source src="./a:vAssets/songAsset/snare.mp3">
-    </audio>
-    <audio loop  muted class="sampleAudio">
-      <source src="./a:vAssets/songAsset/sample.mp3">
-    </audio>
-    <audio loop  muted class="clapsAudio">
-      <source src="./a:vAssets/songAsset/claps.mp3">
-    </audio>
-    <audio loop  muted class="noiseAudio">
-      <source src="./a:vAssets/songAsset/noise.mp3">
-    </audio>
+    <div class="audio">
+      <audio loop muted class="hi-hatsAudio">
+        <source src="./a:vAssets/songAsset/hi-hats.mp3">
+      </audio>
+      <audio loop muted class="pianoAudio">
+        <source src="./a:vAssets/songAsset/piano.mp3">
+      </audio>
+      <audio loop muted class="kickAudio">
+        <source src="./a:vAssets/songAsset/kick.mp3">
+      </audio>
+      <audio loop muted class="snareAudio">
+        <source src="./a:vAssets/songAsset/snare.mp3">
+      </audio>
+      <audio loop muted class="sampleAudio">
+        <source src="./a:vAssets/songAsset/sample.mp3">
+      </audio>
+      <audio loop muted class="clapsAudio">
+        <source src="./a:vAssets/songAsset/claps.mp3">
+      </audio>
+      <audio loop muted class="noiseAudio">
+        <source src="./a:vAssets/songAsset/noise.mp3">
+      </audio>
+    </div>
   </body>
 </html>

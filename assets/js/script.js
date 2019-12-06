@@ -32,7 +32,7 @@ function randomizeCardsAndAddFoundCards() {
     for (var index = 0; index < finalCardOrder.length; index++) {
       //Card front with random image
       var cardFront = $("<div>");
-      cardFront.addClass("front card-image mobile " + finalCardOrder[index]);
+      cardFront.addClass("front card-image " + finalCardOrder[index]);
       //Card back with default image
       var cardBack = $("<div>");
       cardBack.addClass("back card-image");

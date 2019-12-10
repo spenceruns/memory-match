@@ -78,6 +78,7 @@ function handleCardClick(event) {
     if (firstCardImage === secondCardImage) {
       //if correct, increases matches variable and sets clicked elements back to null
       matches++;
+      attempts++;
       showBeats(firstCardImage);
       toggleMusicTrack(event);
       firstCardClicked.addClass("hideCard");

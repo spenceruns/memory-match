@@ -6,50 +6,50 @@ function inializeApp() {
   $(".startGame").on("click", startGame);
 }
 
-//Creating variables to hold clicked card values and check if they match
-var firstCardClicked = null;
-var secondCardClicked = null;
-var matches = 0;
-var maxMatches = 9;
-var attempts = 0;
-var gamesPlayed = 0;
-var firstCardImage = null;
-var secondCardImage = null;
+//Creating letiables to hold clicked card values and check if they match
+let firstCardClicked = null;
+let secondCardClicked = null;
+let matches = 0;
+const maxMatches = 9;
+let attempts = 0;
+let gamesPlayed = 0;
+let firstCardImage = null;
+let secondCardImage = null;
 
 function randomizeCardsAndAddFoundCards() {
   //Array with 9 seperate css class names in it
-  var cardFrontOrder = ["hi-hats", "piano", "bass", "kick", "snare", "sample", "clap", "synth", "noise"];
+  let cardFrontOrder = ["hi-hats", "piano", "bass", "kick", "snare", "sample", "clap", "synth", "noise"];
   //Adding the array to itself in order to make pairs
-  var finalCardOrder = cardFrontOrder.concat(cardFrontOrder);
+  let finalCardOrder = cardFrontOrder.concat(cardFrontOrder);
   //Randomizing the order of the array for each game. Returns random full array
-  for (var index = finalCardOrder.length - 1; index > 0; index--) {
-    var randomNumber = Math.floor(Math.random() * index);
-    var temp = finalCardOrder[index];
+  for (let index = finalCardOrder.length - 1; index > 0; index--) {
+    let randomNumber = Math.floor(Math.random() * index);
+    let temp = finalCardOrder[index];
     finalCardOrder[index] = finalCardOrder[randomNumber];
     finalCardOrder[randomNumber] = temp;
   }
   //Dynamically creating cards from above array and adding it to the DOM.
-    for (var index = 0; index < finalCardOrder.length; index++) {
+    for (let index = 0; index < finalCardOrder.length; index++) {
       //Card front with random image
-      var cardFront = $("<div>");
+      let cardFront = $("<div>");
       cardFront.addClass("front card-image " + finalCardOrder[index]);
       //Card back with default image
-      var cardBack = $("<div>");
+      let cardBack = $("<div>");
       cardBack.addClass("back card-image");
       //Creating container for above two created divs
-      var card = $("<div>");
+      let card = $("<div>");
       card.addClass("card");
       //Appending created elements to correct location
       card.append(cardFront, cardBack);
       $(".cardContainer").append(card);
     }
     //Dynamically creating the found cards
-    for (var foundIndex = 0; foundIndex < cardFrontOrder.length; foundIndex++) {
+    for (let foundIndex = 0; foundIndex < cardFrontOrder.length; foundIndex++) {
       //Card front with images in order
-      var foundCardFront = $("<div>");
+      let foundCardFront = $("<div>");
       foundCardFront.addClass("front card-image " + cardFrontOrder[foundIndex] + " hidden");
       //Card wrapper for found cards
-      var foundCard = $("<div>");
+      let foundCard = $("<div>");
       foundCard.addClass("foundCard");
       foundCard.append(foundCardFront);
       //Appending cards to correct location
@@ -76,7 +76,7 @@ function handleCardClick(event) {
 
     //Checking above stored elements
     if (firstCardImage === secondCardImage) {
-      //if correct, increases matches variable and sets clicked elements back to null
+      //if correct, increases matches letiable and sets clicked elements back to null
       matches++;
       attempts++;
       showBeats(firstCardImage);
@@ -109,8 +109,8 @@ function handleCardClick(event) {
 }
 
 function toggleMusicTrack(event) {
-  var $foundCard = $(".foundCard");
-  var cardToggled = $(event.currentTarget).find(".front").css("background-image");
+  let $foundCard = $(".foundCard");
+  let cardToggled = $(event.currentTarget).find(".front").css("background-image");
   //Hide cards off board and show on side while unmuting audio based on card found
   if (cardToggled.indexOf("hi-hats") > -1) {
     $foundCard.find(".hi-hats");
@@ -148,7 +148,7 @@ function calculateAccuracy() {
     return "0%";
   } else {
   //Round to 2 decimal places for the accuracy
-    var trueAccuracy = Math.round(10000 * matches/attempts) / 100;
+    let trueAccuracy = Math.round(10000 * matches/attempts) / 100;
     return trueAccuracy + "%";
   }
 }
@@ -162,7 +162,7 @@ function updateStats() {
 
 function handleModal() {
   //Defining modal and closeButton for later
-  var modal = $(".modal");
+  let modal = $(".modal");
 
   //Show modal if win condition is reached
   modal.removeClass("hidden");
@@ -222,7 +222,7 @@ function startGame() {
 }
 
 function showBeats(cardFound) {
-  var $foundCard = $(".foundCard");
+  let $foundCard = $(".foundCard");
   //Hide cards off board and show on side while unmuting audio based on card found
   if (cardFound.indexOf("hi-hats") > -1) {
     $foundCard.find(".hi-hats").removeClass("hidden");

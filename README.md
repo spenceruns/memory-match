@@ -37,6 +37,6 @@ Try the application live at [lo-fi.spenceruns.com](https://lo-fi.spenceruns.com)
 
     ```shell
     git clone https://github.com/spenceruns/memory-match
-    cd sgt-react
+    cd memory-match
     ```
 1. Start the project. Once started you can view the application by opening http://localhost:3000 in your browser.

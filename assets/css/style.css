@@ -330,7 +330,7 @@ p {
   }
 
 .stats{
-  font-size: 1em;
+  font-size: 0.5em;
 }
 }
 
@@ -338,6 +338,12 @@ p {
 @media (max-width: 576px) {
   main {
   height: 88%;
+}
+
+.playAgain,
+.startGame,
+.pixel {
+  font-size: 0.5em;
 }
 
 .foundCardContainer{

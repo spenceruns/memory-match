@@ -3,7 +3,8 @@ body {
   background-color: black;
   margin: 0;
   padding: 0;
-  height: 97vh;
+  height: 100vh;
+  max-height: 100%;
 }
 
 .startScreen {
